@@ -71,6 +71,20 @@ namespace MagesDementiaGame
             EnsureInstance();
         }
 
+        // Unity can enter Play Mode from an unsaved backup or other non-game scene.
+        // In that case, start the game from Act 1 instead of showing an empty camera.
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+        private static void EnsurePlayableStartingScene()
+        {
+            var activeSceneName = SceneManager.GetActiveScene().name;
+            if (activeSceneName == RecipientSceneName || activeSceneName == CaregiverSceneName)
+            {
+                return;
+            }
+
+            SceneManager.LoadScene(RecipientSceneName);
+        }
+
         public static GameSession EnsureInstance()
         {
             if (Instance != null)
