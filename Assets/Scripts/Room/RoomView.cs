@@ -20,6 +20,8 @@ namespace MagesDementiaGame
         private static readonly Vector2 TelevisionPosition = new Vector2(0f, 1.7f);
         private static readonly Vector2 TablePosition = new Vector2(0f, -0.9f);
         private static readonly Vector2 SofaPosition = new Vector2(0f, -2.65f);
+        private static readonly Vector3 CaregiverStartPosition = new Vector3(-5.4f, -1.35f, 0f);
+        private static readonly Vector3 RecipientStartPosition = new Vector3(4.2f, -1.35f, 0f);
 
         private static Sprite rectangleSprite;
 
@@ -37,8 +39,25 @@ namespace MagesDementiaGame
         public GameObject Minh { get; private set; }
         public TopDownPlayerController PlayerController { get; private set; }
         public InteractionController PlayerInteractionController { get; private set; }
-        public Vector3 LanDoorwayPosition => new Vector3(-6f, -2.7f, 0f);
-        public Vector3 LanConversationPosition => new Vector3(3f, -2.7f, 0f);
+        public Vector3 LanDoorwayPosition => new Vector3(-5.8f, 0.15f, 0f);
+        public Vector3 ApproachStagingPosition => new Vector3(-3.35f, -0.85f, 0f);
+        public Vector3 LanCloseApproachPosition => new Vector3(3.15f, -1.3f, 0f);
+        public Vector3 LanIntroductionPosition => new Vector3(3.05f, -0.65f, 0f);
+        public Vector3[] LanEntranceWaypoints => new[]
+        {
+            new Vector3(-4.8f, -0.45f, 0f),
+            ApproachStagingPosition
+        };
+
+        public Vector3[] BuildLanApproachRoute(Vector3 destination)
+        {
+            return new[]
+            {
+                new Vector3(-2.35f, 0.05f, 0f),
+                new Vector3(2.45f, 0.05f, 0f),
+                destination
+            };
+        }
 
         public void Initialize(RoomArtSet sharedArtSet)
         {
@@ -137,34 +156,57 @@ namespace MagesDementiaGame
 
             var sofaSprite = artSet != null ? artSet.Sofa : null;
             Sofa = CreateVisual("Sofa", SofaPosition, new Vector2(5.2f, 1.82f),
-                sofaSprite != null ? Color.white : new Color(0.4f, 0.17f, 0.21f), 0, true, sofaSprite, 0.35f);
+                sofaSprite != null ? Color.white : new Color(0.4f, 0.17f, 0.21f), WorldSortingOrder(SofaPosition), true, sofaSprite, 0.35f);
         }
 
         private void CreateCharacters(RoomPerspective perspective)
         {
-            Lan = CreateVisual("Lan", new Vector2(-5.4f, -1.35f), new Vector2(0.7f, 0.95f),
-                new Color(0.2f, 0.82f, 0.68f), 4, false);
-            Minh = CreateVisual("Minh", new Vector2(4.4f, -0.65f), new Vector2(0.75f, 1f),
-                new Color(0.93f, 0.65f, 0.25f), 4, false);
+            Lan = CreateCharacter("Lan", CaregiverStartPosition, artSet != null ? artSet.Lan : null,
+                new Color(0.2f, 0.82f, 0.68f), new Vector2(0.7f, 0.95f));
+            Minh = CreateCharacter("Minh", RecipientStartPosition, artSet != null ? artSet.Minh : null,
+                new Color(0.93f, 0.65f, 0.25f), new Vector2(0.75f, 1f));
 
             var controlledCharacter = perspective == RoomPerspective.Caregiver ? Lan : Minh;
             var npc = perspective == RoomPerspective.Caregiver ? Minh : Lan;
             AddCharacterCollider(npc);
-            ConfigurePlayer(controlledCharacter);
+            ConfigurePlayer(controlledCharacter, perspective == RoomPerspective.Caregiver ? 3f : 1.6f);
 
             if (perspective == RoomPerspective.Recipient)
             {
-                Minh.transform.position = new Vector3(4.4f, -1.35f, 0f);
+                Minh.transform.position = RecipientStartPosition;
                 Lan.transform.position = LanDoorwayPosition;
                 Lan.SetActive(false);
             }
         }
 
-        private void ConfigurePlayer(GameObject character)
+        private GameObject CreateCharacter(string name, Vector3 position, CharacterSpriteSet sprites, Color fallbackColor, Vector2 fallbackSize)
         {
-            var collider = character.AddComponent<BoxCollider2D>();
-            var nativeSize = character.GetComponent<SpriteRenderer>().sprite.bounds.size;
-            collider.size = nativeSize;
+            var idle = sprites != null ? sprites.Idle : null;
+            var character = new GameObject(name);
+            character.transform.SetParent(transform);
+            character.transform.position = position;
+
+            var visualObject = new GameObject("Visual");
+            visualObject.transform.SetParent(character.transform, false);
+            var renderer = visualObject.AddComponent<SpriteRenderer>();
+            renderer.sprite = idle != null ? idle : GetRectangleSprite();
+            renderer.color = idle != null ? Color.white : fallbackColor;
+            renderer.sortingOrder = WorldSortingOrder(position);
+            if (idle == null)
+            {
+                var nativeSize = renderer.sprite.bounds.size;
+                visualObject.transform.localScale = new Vector3(fallbackSize.x / nativeSize.x, fallbackSize.y / nativeSize.y, 1f);
+            }
+
+            var visual = visualObject.AddComponent<CharacterVisualController>();
+            visual.Initialize(sprites);
+            character.AddComponent<WaypointCharacterMover>();
+            return character;
+        }
+
+        private void ConfigurePlayer(GameObject character, float speed)
+        {
+            AddCharacterCollider(character);
 
             var body = character.AddComponent<Rigidbody2D>();
             body.gravityScale = 0f;
@@ -173,13 +215,15 @@ namespace MagesDementiaGame
             body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
             PlayerController = character.AddComponent<TopDownPlayerController>();
+            PlayerController.Configure(speed);
             PlayerInteractionController = character.AddComponent<InteractionController>();
         }
 
         private void AddCharacterCollider(GameObject character)
         {
             var collider = character.AddComponent<BoxCollider2D>();
-            collider.size = character.GetComponent<SpriteRenderer>().sprite.bounds.size;
+            collider.size = new Vector2(0.42f, 0.24f);
+            collider.offset = new Vector2(0f, 0.12f);
         }
 
         private void CreateCamera()
@@ -253,6 +297,11 @@ namespace MagesDementiaGame
             }
 
             return rectangleSprite;
+        }
+
+        private static int WorldSortingOrder(Vector3 position)
+        {
+            return 500 - Mathf.RoundToInt(position.y * 100f);
         }
     }
 }

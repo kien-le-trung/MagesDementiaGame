@@ -28,7 +28,7 @@ namespace MagesDementiaGame
                     1 => "The television murmurs in the background, but another voice can reach you.",
                     _ => "The television fills the room. Its voices compete for your attention."
                 },
-                BuildRecognitionBeat(session.SelectedApproachChoice),
+                BuildRecognitionBeat(effects),
                 BuildLunchBeat(effects.SpeechClarity),
                 BuildResponseBeat(session.SelectedResponseChoice),
                 BuildResolutionBeat(effects)
@@ -74,17 +74,19 @@ namespace MagesDementiaGame
             };
         }
 
-        private static string BuildRecognitionBeat(ApproachChoice choice)
+        private static string BuildRecognitionBeat(ReplayEffects effects)
         {
-            return choice switch
+            if (effects.Recognition >= 2)
             {
-                ApproachChoice.CallFromDistance =>
-                    "A voice calls from somewhere behind you. You cannot connect it to a face.",
-                ApproachChoice.ApproachQuickly =>
-                    "Someone moves into your space before you can study her face. You pull back.",
-                _ =>
-                    "A woman enters your view and pauses. \"Hi Grandpa, it's Lan.\" Her name helps her face settle into place."
-            };
+                return "A woman enters your view and pauses. \"Hi Grandpa, it's Lan.\" Her name helps her face settle into place.";
+            }
+
+            if (effects.Recognition < 0)
+            {
+                return "Someone moves into your space before you can study her face. You pull back.";
+            }
+
+            return "A voice calls from across the room. You cannot yet connect it to a familiar face.";
         }
 
         private static string BuildLunchBeat(SpeechClarity clarity)

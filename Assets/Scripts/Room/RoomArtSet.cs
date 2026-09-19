@@ -9,5 +9,7 @@ namespace MagesDementiaGame
         public Sprite Sofa;
         public Sprite Table;
         public Sprite Television;
+        public CharacterSpriteSet Lan = new CharacterSpriteSet();
+        public CharacterSpriteSet Minh = new CharacterSpriteSet();
     }
 }

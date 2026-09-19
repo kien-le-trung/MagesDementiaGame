@@ -49,6 +49,7 @@ namespace MagesDementiaGame
         public ApproachChoice SelectedApproachChoice { get; private set; }
         public ResponseChoice SelectedResponseChoice { get; private set; }
         public ReplayEffects ReplayEffects { get; private set; }
+        public bool IsTransitioning { get; private set; }
 
         public bool HasAllChoices =>
             SelectedEnvironmentChoice != EnvironmentChoice.NotChosen &&
@@ -127,12 +128,22 @@ namespace MagesDementiaGame
 
         public void BeginIntervention()
         {
+            if (IsTransitioning)
+            {
+                return;
+            }
+
+            IsTransitioning = true;
             Phase = NarrativePhase.Intervention;
             NotifyChanged();
 
             if (SceneManager.GetActiveScene().name != CaregiverSceneName)
             {
                 SceneManager.LoadScene(CaregiverSceneName);
+            }
+            else
+            {
+                IsTransitioning = false;
             }
         }
 
@@ -156,11 +167,12 @@ namespace MagesDementiaGame
 
         public bool BeginReplay()
         {
-            if (!HasAllChoices)
+            if (!HasAllChoices || IsTransitioning)
             {
                 return false;
             }
 
+            IsTransitioning = true;
             ReplayEffects = OutcomeCalculator.Calculate(
                 SelectedEnvironmentChoice,
                 SelectedApproachChoice,
@@ -172,17 +184,32 @@ namespace MagesDementiaGame
             {
                 SceneManager.LoadScene(RecipientSceneName);
             }
+            else
+            {
+                IsTransitioning = false;
+            }
             return true;
         }
 
         public void BeginReflection()
         {
+            if (IsTransitioning)
+            {
+                return;
+            }
+
             Phase = NarrativePhase.Reflection;
             NotifyChanged();
         }
 
         public void Restart()
         {
+            if (IsTransitioning)
+            {
+                return;
+            }
+
+            IsTransitioning = true;
             ResetSession();
             NotifyChanged();
             SceneManager.LoadScene(RecipientSceneName);
@@ -204,6 +231,7 @@ namespace MagesDementiaGame
 
         private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
         {
+            IsTransitioning = false;
             if (scene.name == RecipientSceneName)
             {
                 RecipientSceneController.BuildForCurrentScene();

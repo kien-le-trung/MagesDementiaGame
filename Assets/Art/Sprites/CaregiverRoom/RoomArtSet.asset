@@ -16,3 +16,51 @@ MonoBehaviour:
   Sofa: {fileID: -1039934807157257005, guid: 64ba8a1de8115b145a70ac3fcdf3d069, type: 3}
   Table: {fileID: -8841490917199087839, guid: f6df960bf1a125647813f1f370359f57, type: 3}
   Television: {fileID: -3578749811347107042, guid: ccb1ac8d7d2e2de4c8adadb790045d97, type: 3}
+  Lan:
+    Idle: {fileID: 21300000, guid: bd36c4988063c8749962f8066c0440a6, type: 3}
+    Portrait: {fileID: 21300000, guid: 99996cd170a21f44dbeb00f7feda0dc4, type: 3}
+    WalkUp:
+    - {fileID: -1602202368, guid: d4d6ce7fa36aeb642b910120a2ac4c52, type: 3}
+    - {fileID: -2034311929, guid: d4d6ce7fa36aeb642b910120a2ac4c52, type: 3}
+    - {fileID: -1288655176, guid: d4d6ce7fa36aeb642b910120a2ac4c52, type: 3}
+    - {fileID: -2083207866, guid: d4d6ce7fa36aeb642b910120a2ac4c52, type: 3}
+    WalkDown:
+    - {fileID: -697559335, guid: 6d18ea5d8a2b2234aaa1140afb60b6c4, type: 3}
+    - {fileID: 2066161321, guid: 6d18ea5d8a2b2234aaa1140afb60b6c4, type: 3}
+    - {fileID: 1734078619, guid: 6d18ea5d8a2b2234aaa1140afb60b6c4, type: 3}
+    - {fileID: 296077476, guid: 6d18ea5d8a2b2234aaa1140afb60b6c4, type: 3}
+    WalkLeft:
+    - {fileID: -1520164099, guid: c346fa6dfb814f84989268c3d807325d, type: 3}
+    - {fileID: -1556694021, guid: c346fa6dfb814f84989268c3d807325d, type: 3}
+    - {fileID: 110736095, guid: c346fa6dfb814f84989268c3d807325d, type: 3}
+    - {fileID: 180519819, guid: c346fa6dfb814f84989268c3d807325d, type: 3}
+    WalkRight:
+    - {fileID: 1432197730, guid: 09b71d2e20400ba49bfb2b678948e1fe, type: 3}
+    - {fileID: -1790066347, guid: 09b71d2e20400ba49bfb2b678948e1fe, type: 3}
+    - {fileID: 914130669, guid: 09b71d2e20400ba49bfb2b678948e1fe, type: 3}
+    - {fileID: -1551303899, guid: 09b71d2e20400ba49bfb2b678948e1fe, type: 3}
+    WorldHeight: 4
+  Minh:
+    Idle: {fileID: 21300000, guid: ae0008498ce768442b2990cb6ca8d676, type: 3}
+    Portrait: {fileID: 21300000, guid: 7f79fe4942a5b514084e303b2c91a34f, type: 3}
+    WalkUp:
+    - {fileID: -356941079, guid: 1f1391b756e1f6841b145f92da6b2fff, type: 3}
+    - {fileID: -751275242, guid: 1f1391b756e1f6841b145f92da6b2fff, type: 3}
+    - {fileID: 326617313, guid: 1f1391b756e1f6841b145f92da6b2fff, type: 3}
+    - {fileID: -1102689774, guid: 1f1391b756e1f6841b145f92da6b2fff, type: 3}
+    WalkDown:
+    - {fileID: -2095376458, guid: d5d623b147379f440a992a2e4a7693d7, type: 3}
+    - {fileID: 1548705378, guid: d5d623b147379f440a992a2e4a7693d7, type: 3}
+    - {fileID: -1628973413, guid: d5d623b147379f440a992a2e4a7693d7, type: 3}
+    - {fileID: -1267243732, guid: d5d623b147379f440a992a2e4a7693d7, type: 3}
+    WalkLeft:
+    - {fileID: -1888074672, guid: a3e8ba25add64fc4aa1a0e72fb588a60, type: 3}
+    - {fileID: -313014834, guid: a3e8ba25add64fc4aa1a0e72fb588a60, type: 3}
+    - {fileID: -1817600967, guid: a3e8ba25add64fc4aa1a0e72fb588a60, type: 3}
+    - {fileID: -1099126088, guid: a3e8ba25add64fc4aa1a0e72fb588a60, type: 3}
+    WalkRight:
+    - {fileID: -94603312, guid: 925f8dccad3477741976dc3867d4c81b, type: 3}
+    - {fileID: -655633057, guid: 925f8dccad3477741976dc3867d4c81b, type: 3}
+    - {fileID: -1228199367, guid: 925f8dccad3477741976dc3867d4c81b, type: 3}
+    - {fileID: 1275720871, guid: 925f8dccad3477741976dc3867d4c81b, type: 3}
+    WorldHeight: 3.8
