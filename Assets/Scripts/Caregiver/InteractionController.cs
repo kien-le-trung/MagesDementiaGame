@@ -10,13 +10,13 @@ namespace MagesDementiaGame
         [SerializeField] private float interactionRadius = 0.8f;
 
         private TopDownPlayerController player;
-        private CaregiverSceneController sceneController;
+        private IInteractionHost interactionHost;
         private InputAction interactAction;
         private IInteractable currentInteractable;
 
-        public void Initialize(CaregiverSceneController controller)
+        public void Initialize(IInteractionHost host)
         {
-            sceneController = controller;
+            interactionHost = host;
         }
 
         private void Awake()
@@ -28,7 +28,7 @@ namespace MagesDementiaGame
 
         private void Update()
         {
-            if (sceneController == null || sceneController.IsModalOpen)
+            if (interactionHost == null || interactionHost.IsInteractionBlocked)
             {
                 SetCurrent(null);
                 return;
@@ -73,7 +73,7 @@ namespace MagesDementiaGame
         private void SetCurrent(IInteractable interactable)
         {
             currentInteractable = interactable;
-            sceneController?.SetInteractionPrompt(interactable?.Prompt);
+            interactionHost?.SetInteractionPrompt(interactable?.Prompt);
         }
 
         private bool WasInteractPressed()

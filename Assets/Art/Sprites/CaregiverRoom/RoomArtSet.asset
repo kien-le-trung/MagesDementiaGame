@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4739d42a0049ef82a61a5c5a8d647d, type: 3}
+  m_Name: RoomArtSet
+  m_EditorClassIdentifier: 
+  Background: {fileID: -7443756053782179069, guid: e41f2fc999df3a9418a0939b1aa1c848, type: 3}
+  Sofa: {fileID: -1039934807157257005, guid: 64ba8a1de8115b145a70ac3fcdf3d069, type: 3}
+  Table: {fileID: -8841490917199087839, guid: f6df960bf1a125647813f1f370359f57, type: 3}
+  Television: {fileID: -3578749811347107042, guid: ccb1ac8d7d2e2de4c8adadb790045d97, type: 3}

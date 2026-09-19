@@ -63,6 +63,12 @@ namespace MagesDementiaGame
                 return;
             }
 
+            if (FindFirstObjectByType<RecipientSceneController>() != null &&
+                session.Phase != NarrativePhase.Reflection)
+            {
+                return;
+            }
+
             EnsureStyles();
 
             var scale = Mathf.Min(Screen.width / ReferenceWidth, Screen.height / ReferenceHeight);

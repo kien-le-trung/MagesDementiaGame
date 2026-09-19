@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace MagesDementiaGame
 {
-    public sealed class CaregiverSceneController : MonoBehaviour
+    public sealed class CaregiverSceneController : MonoBehaviour, IInteractionHost
     {
         private enum ChoicePanel
         {
@@ -24,12 +24,14 @@ namespace MagesDementiaGame
         private const float ReferenceWidth = 960f;
         private const float ReferenceHeight = 540f;
 
-        private static Sprite rectangleSprite;
+        [Header("Caregiver room artwork")]
+        [SerializeField] private RoomArtSet artSet;
 
         private readonly List<WorldLabel> worldLabels = new List<WorldLabel>();
         private GameSession session;
         private TopDownPlayerController player;
         private EnvironmentController environmentController;
+        private RoomView roomView;
         private Camera roomCamera;
         private ChoicePanel activePanel;
         private string interactionPrompt;
@@ -39,14 +41,17 @@ namespace MagesDementiaGame
         private GUIStyle buttonStyle;
         private GUIStyle selectedButtonStyle;
         private GUIStyle promptStyle;
+        private bool roomBuilt;
 
         public bool IsModalOpen => activePanel != ChoicePanel.None;
+        public bool IsInteractionBlocked => IsModalOpen;
 
         public static void BuildForCurrentScene()
         {
             var existing = FindFirstObjectByType<CaregiverSceneController>();
             if (existing != null)
             {
+                existing.BuildRoom();
                 return;
             }
 
@@ -58,6 +63,12 @@ namespace MagesDementiaGame
         private void Awake()
         {
             session = GameSession.EnsureInstance();
+        }
+
+        private void Start()
+        {
+            // Also builds when this scene is entered directly and scene callbacks run in an unusual order.
+            BuildRoom();
         }
 
         private void Update()
@@ -88,127 +99,34 @@ namespace MagesDementiaGame
 
         private void BuildRoom()
         {
-            CreateCamera();
+            if (roomBuilt)
+            {
+                return;
+            }
 
-            CreateRectangle("Floor", Vector2.zero, new Vector2(15.5f, 8.4f), new Color(0.25f, 0.23f, 0.21f), -10, false);
-            CreateRectangle("Rug", new Vector2(0.6f, -0.2f), new Vector2(7.4f, 4.5f), new Color(0.28f, 0.14f, 0.16f), -8, false);
+            roomBuilt = true;
+            roomView = gameObject.AddComponent<RoomView>();
+            roomView.Initialize(artSet);
+            roomView.Build(RoomPerspective.Caregiver);
+            roomCamera = roomView.RoomCamera;
 
-            CreateWall("Top Wall", new Vector2(0f, 4.45f), new Vector2(16.4f, 0.6f));
-            CreateWall("Bottom Wall Left", new Vector2(-4.7f, -4.45f), new Vector2(7f, 0.6f));
-            CreateWall("Bottom Wall Right", new Vector2(4.7f, -4.45f), new Vector2(7f, 0.6f));
-            CreateWall("Left Wall", new Vector2(-8f, 0f), new Vector2(0.6f, 9.5f));
-            CreateWall("Right Wall", new Vector2(8f, 0f), new Vector2(0.6f, 9.5f));
+            AddWorldLabel("TELEVISION", roomView.Television.transform);
+            AddWorldLabel("TABLE", roomView.Table.transform);
+            AddWorldLabel("PHOTO", roomView.Photograph.transform);
+            AddWorldLabel("SOFA", roomView.Sofa.transform);
+            AddWorldLabel("MINH", roomView.Minh.transform);
+            AddWorldLabel("LAN", roomView.Lan.transform);
 
-            var doorway = CreateRectangle("Doorway", new Vector2(0f, -4.25f), new Vector2(2.2f, 0.45f), new Color(0.52f, 0.37f, 0.22f), -1, true);
-            AddWorldLabel("DOORWAY", doorway.transform);
-
-            var television = CreateRectangle("Television", new Vector2(-6.55f, 2.4f), new Vector2(1.8f, 1.15f), new Color(0.18f, 0.72f, 0.95f), 1, true);
-            AddWorldLabel("TELEVISION", television.transform);
-            var televisionInteractable = television.AddComponent<TelevisionInteractable>();
+            var televisionInteractable = roomView.Television.AddComponent<TelevisionInteractable>();
             televisionInteractable.Initialize(this);
-
-            var table = CreateRectangle("Table", new Vector2(-1.4f, 1.05f), new Vector2(2.6f, 1.25f), new Color(0.48f, 0.31f, 0.18f), 0, true);
-            AddWorldLabel("TABLE", table.transform);
-            var photograph = CreateRectangle("Family Photograph", new Vector2(-1.4f, 1.05f), new Vector2(0.55f, 0.42f), new Color(0.96f, 0.78f, 0.24f), 3, false);
-            AddWorldLabel("PHOTO", photograph.transform);
-
-            var sofa = CreateRectangle("Sofa", new Vector2(4.7f, 2.65f), new Vector2(4.1f, 1.3f), new Color(0.40f, 0.17f, 0.21f), 0, true);
-            AddWorldLabel("SOFA", sofa.transform);
-
-            var minh = CreateRectangle("Minh", new Vector2(4.65f, 1.35f), new Vector2(0.75f, 1.0f), new Color(0.93f, 0.65f, 0.25f), 3, true);
-            AddWorldLabel("MINH", minh.transform);
-            var minhInteractable = minh.AddComponent<MinhInteractable>();
+            var minhInteractable = roomView.Minh.AddComponent<MinhInteractable>();
             minhInteractable.Initialize(this);
 
-            var sideTable = CreateRectangle("Side Table", new Vector2(6.7f, 0.3f), new Vector2(1.0f, 1.0f), new Color(0.42f, 0.27f, 0.16f), 0, true);
-            AddWorldLabel("SIDE TABLE", sideTable.transform);
-
-            CreatePlayer();
+            player = roomView.PlayerController;
+            roomView.PlayerInteractionController.Initialize(this);
 
             environmentController = gameObject.AddComponent<EnvironmentController>();
-            environmentController.Initialize(television.GetComponent<SpriteRenderer>(), photograph);
-        }
-
-        private void CreateCamera()
-        {
-            roomCamera = Camera.main;
-            if (roomCamera == null)
-            {
-                var cameraObject = new GameObject("Main Camera");
-                cameraObject.tag = "MainCamera";
-                roomCamera = cameraObject.AddComponent<Camera>();
-                cameraObject.AddComponent<AudioListener>();
-            }
-
-            roomCamera.orthographic = true;
-            roomCamera.orthographicSize = 5.3f;
-            roomCamera.transform.position = new Vector3(0f, 0f, -10f);
-            roomCamera.clearFlags = CameraClearFlags.SolidColor;
-            roomCamera.backgroundColor = new Color(0.08f, 0.09f, 0.11f);
-        }
-
-        private void CreatePlayer()
-        {
-            var lan = CreateRectangle("Lan", new Vector2(0f, -3.35f), new Vector2(0.7f, 0.95f), new Color(0.20f, 0.82f, 0.68f), 4, false);
-            AddWorldLabel("LAN", lan.transform);
-
-            var collider = lan.AddComponent<BoxCollider2D>();
-            collider.size = new Vector2(0.82f, 0.82f);
-
-            var body = lan.AddComponent<Rigidbody2D>();
-            body.gravityScale = 0f;
-            body.freezeRotation = true;
-            body.interpolation = RigidbodyInterpolation2D.Interpolate;
-            body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-
-            player = lan.AddComponent<TopDownPlayerController>();
-            var interaction = lan.AddComponent<InteractionController>();
-            interaction.Initialize(this);
-        }
-
-        private GameObject CreateWall(string name, Vector2 position, Vector2 size)
-        {
-            return CreateRectangle(name, position, size, new Color(0.68f, 0.62f, 0.53f), 0, true);
-        }
-
-        private static GameObject CreateRectangle(
-            string name,
-            Vector2 position,
-            Vector2 size,
-            Color color,
-            int sortingOrder,
-            bool addCollider)
-        {
-            var rectangle = new GameObject(name);
-            rectangle.transform.position = new Vector3(position.x, position.y, 0f);
-            rectangle.transform.localScale = new Vector3(size.x, size.y, 1f);
-
-            var renderer = rectangle.AddComponent<SpriteRenderer>();
-            renderer.sprite = GetRectangleSprite();
-            renderer.color = color;
-            renderer.sortingOrder = sortingOrder;
-
-            if (addCollider)
-            {
-                rectangle.AddComponent<BoxCollider2D>();
-            }
-
-            return rectangle;
-        }
-
-        private static Sprite GetRectangleSprite()
-        {
-            if (rectangleSprite == null)
-            {
-                rectangleSprite = Sprite.Create(
-                    Texture2D.whiteTexture,
-                    new Rect(0f, 0f, 1f, 1f),
-                    new Vector2(0.5f, 0.5f),
-                    1f);
-                rectangleSprite.name = "Runtime Rectangle";
-            }
-
-            return rectangleSprite;
+            environmentController.Initialize(roomView);
         }
 
         private void AddWorldLabel(string text, Transform anchor)

@@ -4,18 +4,12 @@ namespace MagesDementiaGame
 {
     public sealed class EnvironmentController : MonoBehaviour
     {
-        private static readonly Color TelevisionOnColor = new Color(0.18f, 0.72f, 0.95f);
-        private static readonly Color TelevisionLoweredColor = new Color(0.16f, 0.36f, 0.48f);
-        private static readonly Color TelevisionOffColor = new Color(0.07f, 0.09f, 0.11f);
-
-        private SpriteRenderer televisionRenderer;
-        private GameObject photograph;
+        private RoomView roomView;
         private GameSession session;
 
-        public void Initialize(SpriteRenderer television, GameObject photographObject)
+        public void Initialize(RoomView view)
         {
-            televisionRenderer = television;
-            photograph = photographObject;
+            roomView = view;
             session = GameSession.EnsureInstance();
             session.StateChanged += ApplyCurrentChoice;
             ApplyCurrentChoice();
@@ -31,7 +25,7 @@ namespace MagesDementiaGame
 
         public void ApplyCurrentChoice()
         {
-            if (televisionRenderer == null || photograph == null || session == null)
+            if (roomView == null || session == null)
             {
                 return;
             }
@@ -39,16 +33,16 @@ namespace MagesDementiaGame
             switch (session.SelectedEnvironmentChoice)
             {
                 case EnvironmentChoice.LowerTelevision:
-                    televisionRenderer.color = TelevisionLoweredColor;
-                    photograph.SetActive(false);
+                    roomView.SetTelevisionState(TelevisionState.Lowered);
+                    roomView.SetPhotoVisible(false);
                     break;
                 case EnvironmentChoice.TurnOffTelevisionAndRestorePhoto:
-                    televisionRenderer.color = TelevisionOffColor;
-                    photograph.SetActive(true);
+                    roomView.SetTelevisionState(TelevisionState.Off);
+                    roomView.SetPhotoVisible(true);
                     break;
                 default:
-                    televisionRenderer.color = TelevisionOnColor;
-                    photograph.SetActive(false);
+                    roomView.SetTelevisionState(TelevisionState.On);
+                    roomView.SetPhotoVisible(false);
                     break;
             }
         }

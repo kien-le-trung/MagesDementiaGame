@@ -171,11 +171,7 @@ namespace MagesDementiaGame
         {
             ResetSession();
             NotifyChanged();
-
-            if (SceneManager.GetActiveScene().name != RecipientSceneName)
-            {
-                SceneManager.LoadScene(RecipientSceneName);
-            }
+            SceneManager.LoadScene(RecipientSceneName);
         }
 
         private void ResetSession()
@@ -194,6 +190,12 @@ namespace MagesDementiaGame
 
         private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
         {
+            if (scene.name == RecipientSceneName)
+            {
+                RecipientSceneController.BuildForCurrentScene();
+                return;
+            }
+
             if (scene.name != CaregiverSceneName)
             {
                 return;
