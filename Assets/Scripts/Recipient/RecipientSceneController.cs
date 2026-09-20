@@ -45,7 +45,7 @@ namespace MagesDementiaGame
         {
             var existing = FindFirstObjectByType<RecipientSceneController>();
             if (existing != null) existing.BuildRoom();
-            else Debug.LogError("RecipientScene requires an authored RecipientSceneController and SharedRoom prefab.");
+            else Debug.LogError("ResolutionScene requires an authored RecipientSceneController and SharedRoom prefab.");
         }
 
         private void Awake() => session = GameSession.EnsureInstance();

@@ -41,8 +41,7 @@ namespace MagesDementiaGame
     {
         public const string MinhViewSceneName = "MinhView";
         public const string LanViewSceneName = "LanView";
-        public const string RecipientSceneName = "RecipientScene";
-        public const string CaregiverSceneName = "CaregiverScene";
+        public const string ResolutionSceneName = "ResolutionScene";
 
         public static GameSession Instance { get; private set; }
 
@@ -81,8 +80,7 @@ namespace MagesDementiaGame
         {
             var activeSceneName = SceneManager.GetActiveScene().name;
             if (activeSceneName == MinhViewSceneName || activeSceneName == LanViewSceneName ||
-                activeSceneName == RecipientSceneName ||
-                activeSceneName == CaregiverSceneName)
+                activeSceneName == ResolutionSceneName)
             {
                 return;
             }
@@ -184,9 +182,9 @@ namespace MagesDementiaGame
             Phase = NarrativePhase.Replay;
             NotifyChanged();
 
-            if (SceneManager.GetActiveScene().name != RecipientSceneName)
+            if (SceneManager.GetActiveScene().name != ResolutionSceneName)
             {
-                SceneManager.LoadScene(RecipientSceneName);
+                SceneManager.LoadScene(ResolutionSceneName);
             }
             else
             {
@@ -241,7 +239,7 @@ namespace MagesDementiaGame
                 return;
             }
 
-            if (scene.name == RecipientSceneName)
+            if (scene.name == ResolutionSceneName)
             {
                 RecipientSceneController.BuildForCurrentScene();
                 return;
@@ -257,19 +255,6 @@ namespace MagesDementiaGame
                 return;
             }
 
-            if (scene.name != CaregiverSceneName)
-            {
-                return;
-            }
-
-            // Entering this scene directly is useful while building and testing it.
-            if (Phase == NarrativePhase.Baseline)
-            {
-                Phase = NarrativePhase.Intervention;
-                NotifyChanged();
-            }
-
-            CaregiverSceneController.BuildForCurrentScene();
         }
     }
 }
