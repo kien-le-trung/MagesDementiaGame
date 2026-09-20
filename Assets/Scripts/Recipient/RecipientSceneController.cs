@@ -18,13 +18,12 @@ namespace MagesDementiaGame
         private const float ReferenceWidth = 960f;
         private const float ReferenceHeight = 540f;
 
-        [SerializeField] private RoomArtSet artSet;
+        [SerializeField] private RoomView roomView;
+        [SerializeField] private InspectionController inspection;
 
         private GameSession session;
-        private RoomView roomView;
         private IReadOnlyList<string> beats;
         private DialoguePanel activePanel;
-        private InspectionController inspection;
         private WaypointCharacterMover lanMover;
         private string interactionPrompt;
         private string dialogueText;
@@ -46,7 +45,7 @@ namespace MagesDementiaGame
         {
             var existing = FindFirstObjectByType<RecipientSceneController>();
             if (existing != null) existing.BuildRoom();
-            else new GameObject("Recipient Scene").AddComponent<RecipientSceneController>().BuildRoom();
+            else Debug.LogError("RecipientScene requires an authored RecipientSceneController and SharedRoom prefab.");
         }
 
         private void Awake() => session = GameSession.EnsureInstance();
@@ -82,18 +81,19 @@ namespace MagesDementiaGame
         private void BuildRoom()
         {
             if (roomBuilt) return;
-            roomBuilt = true;
             IsReplay = session.Phase == NarrativePhase.Replay;
             beats = IsReplay ? PhaseOneContent.BuildReplayBeats(session) : PhaseOneContent.BaselineBeats;
 
-            roomView = gameObject.AddComponent<RoomView>();
-            roomView.Initialize(artSet);
-            roomView.Build(RoomPerspective.Recipient);
-            roomView.PlayerInteractionController.Initialize(this);
+            if (roomView == null || inspection == null)
+            {
+                Debug.LogError("RecipientSceneController is missing its authored RoomView or InspectionController reference.", this);
+                return;
+            }
+            if (!roomView.Configure(RoomPerspective.Recipient, this)) return;
+            roomBuilt = true;
             roomView.SetLanVisible(false);
-            lanMover = roomView.Lan.GetComponent<WaypointCharacterMover>();
+            lanMover = roomView.LanMover;
 
-            inspection = gameObject.AddComponent<InspectionController>();
             inspection.Initialize(roomView.RoomCamera);
 
             if (IsReplay) ApplyReplayEnvironment();
@@ -103,8 +103,8 @@ namespace MagesDementiaGame
                 roomView.SetPhotoVisible(false);
             }
 
-            roomView.PhotographSpot.AddComponent<RecipientPhotoInteractable>().Initialize(this);
-            roomView.Television.AddComponent<RecipientTelevisionInteractable>().Initialize(this);
+            roomView.PhotographSpot.GetComponent<RecipientPhotoInteractable>().Initialize(this);
+            roomView.Television.GetComponent<RecipientTelevisionInteractable>().Initialize(this);
             SetState(RecipientFlowState.ExplorePhotograph);
         }
 

@@ -53,6 +53,11 @@ namespace MagesDementiaGame
                 var behaviours = hit.GetComponents<MonoBehaviour>();
                 foreach (var behaviour in behaviours)
                 {
+                    if (!behaviour.enabled)
+                    {
+                        continue;
+                    }
+
                     if (!(behaviour is IInteractable candidate))
                     {
                         continue;

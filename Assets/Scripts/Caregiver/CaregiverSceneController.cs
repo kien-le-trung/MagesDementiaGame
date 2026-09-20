@@ -18,13 +18,12 @@ namespace MagesDementiaGame
 
         private const float ReferenceWidth = 960f;
         private const float ReferenceHeight = 540f;
-        [SerializeField] private RoomArtSet artSet;
+        [SerializeField] private RoomView roomView;
+        [SerializeField] private EnvironmentController environmentController;
 
         private readonly List<WorldLabel> worldLabels = new List<WorldLabel>();
         private GameSession session;
         private TopDownPlayerController player;
-        private EnvironmentController environmentController;
-        private RoomView roomView;
         private Camera roomCamera;
         private WaypointCharacterMover lanMover;
         private ChoicePanel activePanel;
@@ -43,7 +42,7 @@ namespace MagesDementiaGame
         {
             var existing = FindFirstObjectByType<CaregiverSceneController>();
             if (existing != null) existing.BuildRoom();
-            else new GameObject("Caregiver Scene").AddComponent<CaregiverSceneController>().BuildRoom();
+            else Debug.LogError("CaregiverScene requires an authored CaregiverSceneController and SharedRoom prefab.");
         }
 
         private void Awake() => session = GameSession.EnsureInstance();
@@ -72,14 +71,16 @@ namespace MagesDementiaGame
         private void BuildRoom()
         {
             if (roomBuilt) return;
+            if (roomView == null || environmentController == null)
+            {
+                Debug.LogError("CaregiverSceneController is missing its authored RoomView or EnvironmentController reference.", this);
+                return;
+            }
+            if (!roomView.Configure(RoomPerspective.Caregiver, this)) return;
             roomBuilt = true;
-            roomView = gameObject.AddComponent<RoomView>();
-            roomView.Initialize(artSet);
-            roomView.Build(RoomPerspective.Caregiver);
             roomCamera = roomView.RoomCamera;
             player = roomView.PlayerController;
-            lanMover = roomView.Lan.GetComponent<WaypointCharacterMover>();
-            roomView.PlayerInteractionController.Initialize(this);
+            lanMover = roomView.LanMover;
 
             AddWorldLabel("TELEVISION", roomView.Television.transform);
             AddWorldLabel("TABLE", roomView.Table.transform);
@@ -88,17 +89,10 @@ namespace MagesDementiaGame
             AddWorldLabel("MINH", roomView.Minh.transform);
             AddWorldLabel("LAN", roomView.Lan.transform);
 
-            roomView.Television.AddComponent<TelevisionInteractable>().Initialize(this);
-            var marker = new GameObject("Approach Staging Point");
-            marker.transform.SetParent(roomView.transform);
-            marker.transform.position = roomView.ApproachStagingPosition;
-            var trigger = marker.AddComponent<CircleCollider2D>();
-            trigger.radius = 0.75f;
-            trigger.isTrigger = true;
-            marker.AddComponent<ApproachMarkerInteractable>().Initialize(this);
-            AddWorldLabel("APPROACH", marker.transform);
+            roomView.Television.GetComponent<TelevisionInteractable>().Initialize(this);
+            roomView.ApproachStagingPoint.GetComponent<ApproachMarkerInteractable>().Initialize(this);
+            AddWorldLabel("APPROACH", roomView.ApproachStagingPoint.transform);
 
-            environmentController = gameObject.AddComponent<EnvironmentController>();
             environmentController.Initialize(roomView);
             FlowState = session.SelectedEnvironmentChoice == EnvironmentChoice.NotChosen
                 ? CaregiverFlowState.PrepareEnvironment : CaregiverFlowState.MoveToApproachMarker;

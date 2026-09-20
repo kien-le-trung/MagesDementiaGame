@@ -39,6 +39,8 @@ namespace MagesDementiaGame
 
     public sealed class GameSession : MonoBehaviour
     {
+        public const string MinhViewSceneName = "MinhView";
+        public const string LanViewSceneName = "LanView";
         public const string RecipientSceneName = "RecipientScene";
         public const string CaregiverSceneName = "CaregiverScene";
 
@@ -78,12 +80,14 @@ namespace MagesDementiaGame
         private static void EnsurePlayableStartingScene()
         {
             var activeSceneName = SceneManager.GetActiveScene().name;
-            if (activeSceneName == RecipientSceneName || activeSceneName == CaregiverSceneName)
+            if (activeSceneName == MinhViewSceneName || activeSceneName == LanViewSceneName ||
+                activeSceneName == RecipientSceneName ||
+                activeSceneName == CaregiverSceneName)
             {
                 return;
             }
 
-            SceneManager.LoadScene(RecipientSceneName);
+            SceneManager.LoadScene(MinhViewSceneName);
         }
 
         public static GameSession EnsureInstance()
@@ -137,9 +141,9 @@ namespace MagesDementiaGame
             Phase = NarrativePhase.Intervention;
             NotifyChanged();
 
-            if (SceneManager.GetActiveScene().name != CaregiverSceneName)
+            if (SceneManager.GetActiveScene().name != LanViewSceneName)
             {
-                SceneManager.LoadScene(CaregiverSceneName);
+                SceneManager.LoadScene(LanViewSceneName);
             }
             else
             {
@@ -212,7 +216,7 @@ namespace MagesDementiaGame
             IsTransitioning = true;
             ResetSession();
             NotifyChanged();
-            SceneManager.LoadScene(RecipientSceneName);
+            SceneManager.LoadScene(MinhViewSceneName);
         }
 
         private void ResetSession()
@@ -232,9 +236,24 @@ namespace MagesDementiaGame
         private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             IsTransitioning = false;
+            if (scene.name == MinhViewSceneName)
+            {
+                return;
+            }
+
             if (scene.name == RecipientSceneName)
             {
                 RecipientSceneController.BuildForCurrentScene();
+                return;
+            }
+
+            if (scene.name == LanViewSceneName)
+            {
+                if (Phase == NarrativePhase.Baseline)
+                {
+                    Phase = NarrativePhase.Intervention;
+                    NotifyChanged();
+                }
                 return;
             }
 

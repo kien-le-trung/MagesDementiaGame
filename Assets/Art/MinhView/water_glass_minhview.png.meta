@@ -1,0 +1,1014 @@
+fileFormatVersion: 2
+guid: 44c162564c912af488f6c36a5b34ff1a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7270867308132956301
+    second: water_glass_minhview_0
+  - first:
+      213: -6419912314775076652
+    second: water_glass_minhview_1
+  - first:
+      213: -3663868747027512545
+    second: water_glass_minhview_2
+  - first:
+      213: -6655529707127703861
+    second: water_glass_minhview_3
+  - first:
+      213: 3333685618016887663
+    second: water_glass_minhview_4
+  - first:
+      213: 6655911353411636943
+    second: water_glass_minhview_5
+  - first:
+      213: -1732247498858607275
+    second: water_glass_minhview_6
+  - first:
+      213: -7245078095746811217
+    second: water_glass_minhview_7
+  - first:
+      213: 6261884809032008129
+    second: water_glass_minhview_8
+  - first:
+      213: -5857277851312324406
+    second: water_glass_minhview_9
+  - first:
+      213: 1811673079574198807
+    second: water_glass_minhview_10
+  - first:
+      213: -3294211515095659208
+    second: water_glass_minhview_11
+  - first:
+      213: -7563058009280916078
+    second: water_glass_minhview_12
+  - first:
+      213: -5824971943948329365
+    second: water_glass_minhview_13
+  - first:
+      213: 3080488694606409071
+    second: water_glass_minhview_14
+  - first:
+      213: -2910701530038417381
+    second: water_glass_minhview_15
+  - first:
+      213: -8348370957174525270
+    second: water_glass_minhview_16
+  - first:
+      213: -2016004595911461258
+    second: water_glass_minhview_17
+  - first:
+      213: 7170455769632859849
+    second: water_glass_minhview_18
+  - first:
+      213: -3405749937345729948
+    second: water_glass_minhview_19
+  - first:
+      213: 7004871433243817711
+    second: water_glass_minhview_20
+  - first:
+      213: -5055610750119846167
+    second: water_glass_minhview_21
+  - first:
+      213: -2118513184694434824
+    second: water_glass_minhview_22
+  - first:
+      213: -1018604871879176822
+    second: water_glass_minhview_23
+  - first:
+      213: -3617051427995341173
+    second: water_glass_minhview_24
+  - first:
+      213: 3962614181875201466
+    second: water_glass_minhview_25
+  - first:
+      213: 935179263480280510
+    second: water_glass_minhview_26
+  - first:
+      213: -3703415858053908798
+    second: water_glass_minhview_27
+  - first:
+      213: -5734642909971623804
+    second: water_glass_minhview_28
+  - first:
+      213: -42626506088908080
+    second: water_glass_minhview_29
+  - first:
+      213: -5296709878518010234
+    second: water_glass_minhview_30
+  - first:
+      213: -758685944437445652
+    second: water_glass_minhview_31
+  - first:
+      213: 6305697547901251429
+    second: water_glass_minhview_32
+  - first:
+      213: 3873912089695111417
+    second: water_glass_minhview_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: water_glass_minhview_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1290
+        height: 1188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3770cb9b4b0b81b90800000000000000
+      internalID: -7270867308132956301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_1
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 1109
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d00dac83c3e7e6a0800000000000000
+      internalID: -6419912314775076652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_2
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 1069
+        width: 94
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1305cd59c2572dc0800000000000000
+      internalID: -3663868747027512545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_3
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 1118
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc6f79e6efec2a3a0800000000000000
+      internalID: -6655529707127703861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_4
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1078
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f63a9be2861a34e20800000000000000
+      internalID: 3333685618016887663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_5
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 1079
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fce07948c1c8e5c50800000000000000
+      internalID: 6655911353411636943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_6
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 1053
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55d497fd312d5f7e0800000000000000
+      internalID: -1732247498858607275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_7
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1052
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa3c05abdf447b90800000000000000
+      internalID: -7245078095746811217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_8
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 900
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c184c29e0fa6e650800000000000000
+      internalID: 6261884809032008129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_9
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 870
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac004c1d3d4c6bea0800000000000000
+      internalID: -5857277851312324406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_10
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 844
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a7825311b542910800000000000000
+      internalID: 1811673079574198807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_11
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 763
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83dc8bb941c9842d0800000000000000
+      internalID: -3294211515095659208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_12
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 290
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2955325bfce9a0790800000000000000
+      internalID: -7563058009280916078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_13
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 95
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ed75601ea892fa0800000000000000
+      internalID: -5824971943948329365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_14
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 95
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6d2f98852810ca20800000000000000
+      internalID: 3080488694606409071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_15
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 77
+        width: 25
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b18cfd6416c1b97d0800000000000000
+      internalID: -2910701530038417381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_16
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 101
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa2bc6498d0a42c80800000000000000
+      internalID: -8348370957174525270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_17
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 100
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67674235086b504e0800000000000000
+      internalID: -2016004595911461258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_18
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 103
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c6ed922883928360800000000000000
+      internalID: 7170455769632859849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_19
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 88
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46ae2b6f9785cb0d0800000000000000
+      internalID: -3405749937345729948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_20
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 71
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe677c3847d463160800000000000000
+      internalID: 7004871433243817711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_21
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 63
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eed57cfeccd6d9b0800000000000000
+      internalID: -5055610750119846167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_22
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 65
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f38e4e9b778992e0800000000000000
+      internalID: -2118513184694434824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_23
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 61
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8dc82d04403dd1f0800000000000000
+      internalID: -1018604871879176822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_24
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 38
+        width: 15
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ea404e3e6adcdc0800000000000000
+      internalID: -3617051427995341173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_25
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 47
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab5b8948a980ef630800000000000000
+      internalID: 3962614181875201466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_26
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 35
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb5bd09d59c6afc00800000000000000
+      internalID: 935179263480280510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_27
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 45
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c6f52d06e2da9cc0800000000000000
+      internalID: -3703415858053908798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_28
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 35
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 480dd6528a47a60b0800000000000000
+      internalID: -5734642909971623804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_29
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 47
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dafd862b6f886ff0800000000000000
+      internalID: -42626506088908080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_30
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 47
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68ea1acbd6e4e76b0800000000000000
+      internalID: -5296709878518010234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_31
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 21
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb69b9372b9875f0800000000000000
+      internalID: -758685944437445652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_32
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 31
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56fa4b3c286528750800000000000000
+      internalID: 6305697547901251429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_glass_minhview_33
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 15
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f84e5d4586e2c530800000000000000
+      internalID: 3873912089695111417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      water_glass_minhview_0: -7270867308132956301
+      water_glass_minhview_1: -6419912314775076652
+      water_glass_minhview_10: 1811673079574198807
+      water_glass_minhview_11: -3294211515095659208
+      water_glass_minhview_12: -7563058009280916078
+      water_glass_minhview_13: -5824971943948329365
+      water_glass_minhview_14: 3080488694606409071
+      water_glass_minhview_15: -2910701530038417381
+      water_glass_minhview_16: -8348370957174525270
+      water_glass_minhview_17: -2016004595911461258
+      water_glass_minhview_18: 7170455769632859849
+      water_glass_minhview_19: -3405749937345729948
+      water_glass_minhview_2: -3663868747027512545
+      water_glass_minhview_20: 7004871433243817711
+      water_glass_minhview_21: -5055610750119846167
+      water_glass_minhview_22: -2118513184694434824
+      water_glass_minhview_23: -1018604871879176822
+      water_glass_minhview_24: -3617051427995341173
+      water_glass_minhview_25: 3962614181875201466
+      water_glass_minhview_26: 935179263480280510
+      water_glass_minhview_27: -3703415858053908798
+      water_glass_minhview_28: -5734642909971623804
+      water_glass_minhview_29: -42626506088908080
+      water_glass_minhview_3: -6655529707127703861
+      water_glass_minhview_30: -5296709878518010234
+      water_glass_minhview_31: -758685944437445652
+      water_glass_minhview_32: 6305697547901251429
+      water_glass_minhview_33: 3873912089695111417
+      water_glass_minhview_4: 3333685618016887663
+      water_glass_minhview_5: 6655911353411636943
+      water_glass_minhview_6: -1732247498858607275
+      water_glass_minhview_7: -7245078095746811217
+      water_glass_minhview_8: 6261884809032008129
+      water_glass_minhview_9: -5857277851312324406
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

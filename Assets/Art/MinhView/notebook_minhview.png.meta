@@ -1,0 +1,3094 @@
+fileFormatVersion: 2
+guid: c3824229025c1bb4596605f72eaf8059
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5555959332531117958
+    second: notebook_minhview_0
+  - first:
+      213: 6569759384906065768
+    second: notebook_minhview_1
+  - first:
+      213: -3431650390615669927
+    second: notebook_minhview_2
+  - first:
+      213: -5152084039412641865
+    second: notebook_minhview_3
+  - first:
+      213: -108269198956885135
+    second: notebook_minhview_4
+  - first:
+      213: 6398455487510542777
+    second: notebook_minhview_5
+  - first:
+      213: -7736603623259073887
+    second: notebook_minhview_6
+  - first:
+      213: -3827963713141984789
+    second: notebook_minhview_7
+  - first:
+      213: 8622151089110059141
+    second: notebook_minhview_8
+  - first:
+      213: -6178591308495855013
+    second: notebook_minhview_9
+  - first:
+      213: 255294088581327678
+    second: notebook_minhview_10
+  - first:
+      213: -44581863632033350
+    second: notebook_minhview_11
+  - first:
+      213: 5949013476771071858
+    second: notebook_minhview_12
+  - first:
+      213: -2507108438189563630
+    second: notebook_minhview_13
+  - first:
+      213: 214732840839742700
+    second: notebook_minhview_14
+  - first:
+      213: 8512406709224689632
+    second: notebook_minhview_15
+  - first:
+      213: -2170950478021193198
+    second: notebook_minhview_16
+  - first:
+      213: 112723858175815371
+    second: notebook_minhview_17
+  - first:
+      213: 3125461944647790089
+    second: notebook_minhview_18
+  - first:
+      213: 5261460917435879159
+    second: notebook_minhview_19
+  - first:
+      213: 2632200012800138570
+    second: notebook_minhview_20
+  - first:
+      213: -411778097356431183
+    second: notebook_minhview_21
+  - first:
+      213: -4366679214163197675
+    second: notebook_minhview_22
+  - first:
+      213: 2202973603029996966
+    second: notebook_minhview_23
+  - first:
+      213: 7080078449637189243
+    second: notebook_minhview_24
+  - first:
+      213: 4635470269767761651
+    second: notebook_minhview_25
+  - first:
+      213: -5104554839419734726
+    second: notebook_minhview_26
+  - first:
+      213: 4696624437459762915
+    second: notebook_minhview_27
+  - first:
+      213: 7524692660046415371
+    second: notebook_minhview_28
+  - first:
+      213: -8314391187527158372
+    second: notebook_minhview_29
+  - first:
+      213: -3524191116723076829
+    second: notebook_minhview_30
+  - first:
+      213: -4781003573409967909
+    second: notebook_minhview_31
+  - first:
+      213: 3009601163925492173
+    second: notebook_minhview_32
+  - first:
+      213: -5340314641246749696
+    second: notebook_minhview_33
+  - first:
+      213: 6492825791943296456
+    second: notebook_minhview_34
+  - first:
+      213: 8797523417078671944
+    second: notebook_minhview_35
+  - first:
+      213: 8434571565110387178
+    second: notebook_minhview_36
+  - first:
+      213: -8903926766930063208
+    second: notebook_minhview_37
+  - first:
+      213: -5261044442303797829
+    second: notebook_minhview_38
+  - first:
+      213: -494572016397274061
+    second: notebook_minhview_39
+  - first:
+      213: -3622749770411856352
+    second: notebook_minhview_40
+  - first:
+      213: 125199933130741335
+    second: notebook_minhview_41
+  - first:
+      213: 6755572622877819501
+    second: notebook_minhview_42
+  - first:
+      213: -9222993301040878134
+    second: notebook_minhview_43
+  - first:
+      213: 3402999858293330971
+    second: notebook_minhview_44
+  - first:
+      213: 960215958908610011
+    second: notebook_minhview_45
+  - first:
+      213: 3427394614725622988
+    second: notebook_minhview_46
+  - first:
+      213: -4976946027216396081
+    second: notebook_minhview_47
+  - first:
+      213: 4895364388891041437
+    second: notebook_minhview_48
+  - first:
+      213: -3327101129709854968
+    second: notebook_minhview_49
+  - first:
+      213: 2353462221217525675
+    second: notebook_minhview_50
+  - first:
+      213: -1778163351744482957
+    second: notebook_minhview_51
+  - first:
+      213: -3527022048704269744
+    second: notebook_minhview_52
+  - first:
+      213: 4948969704061620043
+    second: notebook_minhview_53
+  - first:
+      213: 3957691465092021749
+    second: notebook_minhview_54
+  - first:
+      213: 2633044566930319559
+    second: notebook_minhview_55
+  - first:
+      213: -7769898157904926991
+    second: notebook_minhview_56
+  - first:
+      213: 203330377592211985
+    second: notebook_minhview_57
+  - first:
+      213: -6552940633849733389
+    second: notebook_minhview_58
+  - first:
+      213: -184922949193700237
+    second: notebook_minhview_59
+  - first:
+      213: 761841500002352290
+    second: notebook_minhview_60
+  - first:
+      213: 3923431907594313095
+    second: notebook_minhview_61
+  - first:
+      213: 4528413355710156234
+    second: notebook_minhview_62
+  - first:
+      213: 3287405593968148847
+    second: notebook_minhview_63
+  - first:
+      213: 8775669733480285302
+    second: notebook_minhview_64
+  - first:
+      213: -7358328356082143471
+    second: notebook_minhview_65
+  - first:
+      213: 4424777622476085252
+    second: notebook_minhview_66
+  - first:
+      213: -5280549706267012626
+    second: notebook_minhview_67
+  - first:
+      213: 8047554636561212303
+    second: notebook_minhview_68
+  - first:
+      213: 3857043750402197886
+    second: notebook_minhview_69
+  - first:
+      213: -8917116219958977682
+    second: notebook_minhview_70
+  - first:
+      213: 6612257604412818201
+    second: notebook_minhview_71
+  - first:
+      213: -893549002333496531
+    second: notebook_minhview_72
+  - first:
+      213: 5370380316334007011
+    second: notebook_minhview_73
+  - first:
+      213: 2074821383180682333
+    second: notebook_minhview_74
+  - first:
+      213: -7797872812085631667
+    second: notebook_minhview_75
+  - first:
+      213: 2559228278507622920
+    second: notebook_minhview_76
+  - first:
+      213: 9173767977505912855
+    second: notebook_minhview_77
+  - first:
+      213: 6243013295510396481
+    second: notebook_minhview_78
+  - first:
+      213: 5194353840109114682
+    second: notebook_minhview_79
+  - first:
+      213: 7453629373736477230
+    second: notebook_minhview_80
+  - first:
+      213: 541565459225949146
+    second: notebook_minhview_81
+  - first:
+      213: 2145501001150836657
+    second: notebook_minhview_82
+  - first:
+      213: -365217733311629122
+    second: notebook_minhview_83
+  - first:
+      213: -1737664775756542826
+    second: notebook_minhview_84
+  - first:
+      213: -2675967288532583502
+    second: notebook_minhview_85
+  - first:
+      213: -4984218154011539229
+    second: notebook_minhview_86
+  - first:
+      213: 3204537400648366577
+    second: notebook_minhview_87
+  - first:
+      213: 6870425363359652010
+    second: notebook_minhview_88
+  - first:
+      213: -8356247276832147515
+    second: notebook_minhview_89
+  - first:
+      213: -7603748372480287524
+    second: notebook_minhview_90
+  - first:
+      213: -8470465018701974434
+    second: notebook_minhview_91
+  - first:
+      213: 1080781457549582165
+    second: notebook_minhview_92
+  - first:
+      213: -1461838403855685291
+    second: notebook_minhview_93
+  - first:
+      213: -4657930739862764295
+    second: notebook_minhview_94
+  - first:
+      213: -6908084357345739337
+    second: notebook_minhview_95
+  - first:
+      213: -3185091072123296334
+    second: notebook_minhview_96
+  - first:
+      213: -4378443869560857599
+    second: notebook_minhview_97
+  - first:
+      213: -7431645577262177689
+    second: notebook_minhview_98
+  - first:
+      213: 6076391896796589329
+    second: notebook_minhview_99
+  - first:
+      213: -7213939743469066207
+    second: notebook_minhview_100
+  - first:
+      213: 1515312136598533607
+    second: notebook_minhview_101
+  - first:
+      213: -6350601050136192917
+    second: notebook_minhview_102
+  - first:
+      213: -5775841629863500092
+    second: notebook_minhview_103
+  - first:
+      213: 6514858489902454729
+    second: notebook_minhview_104
+  - first:
+      213: 2487663653400172038
+    second: notebook_minhview_105
+  - first:
+      213: -5014877305583185523
+    second: notebook_minhview_106
+  - first:
+      213: 8816436123030375255
+    second: notebook_minhview_107
+  - first:
+      213: 2631593952903749061
+    second: notebook_minhview_108
+  - first:
+      213: -4384306134686090325
+    second: notebook_minhview_109
+  - first:
+      213: 8809268710290527862
+    second: notebook_minhview_110
+  - first:
+      213: 8846812627931316970
+    second: notebook_minhview_111
+  - first:
+      213: -2135815928945048409
+    second: notebook_minhview_112
+  - first:
+      213: 5971417105660591824
+    second: notebook_minhview_113
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: notebook_minhview_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 951
+        width: 93
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7067fd7c6445e2b0800000000000000
+      internalID: -5555959332531117958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 0
+        width: 1485
+        height: 991
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8676d1d3a597c2b50800000000000000
+      internalID: 6569759384906065768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_2
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 869
+        width: 129
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953c502c6245060d0800000000000000
+      internalID: -3431650390615669927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_3
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 951
+        width: 81
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bf89d1fcde1088b0800000000000000
+      internalID: -5152084039412641865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_4
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 975
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17b0f08bcb95f7ef0800000000000000
+      internalID: -108269198956885135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_5
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 989
+        width: 69
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b9f63c8d51ebc850800000000000000
+      internalID: 6398455487510542777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_6
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 943
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a294a3beff02a490800000000000000
+      internalID: -7736603623259073887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_7
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 977
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be13619c84750eac0800000000000000
+      internalID: -3827963713141984789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_8
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 975
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5880722cbb808a770800000000000000
+      internalID: 8622151089110059141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_9
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 961
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b52e9c4c0fb314aa0800000000000000
+      internalID: -6178591308495855013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_10
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 959
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3ba527fe9cfa8300800000000000000
+      internalID: 255294088581327678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_11
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 959
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab9a9cef70d916ff0800000000000000
+      internalID: -44581863632033350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_12
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 959
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27783f6ec342f8250800000000000000
+      internalID: 5949013476771071858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_13
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 949
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 211a350a826f43dd0800000000000000
+      internalID: -2507108438189563630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_14
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 940
+        width: 35
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce40ddb8162eaf200800000000000000
+      internalID: 214732840839742700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_15
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 931
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ef4df62dc4222670800000000000000
+      internalID: 8512406709224689632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_16
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 929
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 212159cda0c3fd1e0800000000000000
+      internalID: -2170950478021193198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_17
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 947
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcee74470c9709100800000000000000
+      internalID: 112723858175815371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_18
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 934
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90eabb9441fdf5b20800000000000000
+      internalID: 3125461944647790089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_19
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 927
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fecd57f3d6740940800000000000000
+      internalID: 5261460917435879159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_20
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 931
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d1bb437f3778420800000000000000
+      internalID: 2632200012800138570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_21
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 927
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b0a8cc8002194af0800000000000000
+      internalID: -411778097356431183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_22
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 927
+        width: 19
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51188bfe3607663c0800000000000000
+      internalID: -4366679214163197675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_23
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 929
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a55a22f1d8829e10800000000000000
+      internalID: 2202973603029996966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_24
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 925
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b76e58c86dd714260800000000000000
+      internalID: 7080078449637189243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_25
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 889
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fe346c86af745040800000000000000
+      internalID: 4635470269767761651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_26
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 911
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35b2eb2b6af829b0800000000000000
+      internalID: -5104554839419734726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_27
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 894
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ee3536ca03cd2140800000000000000
+      internalID: 4696624437459762915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_28
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 911
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b064e065b141d6860800000000000000
+      internalID: 7524692660046415371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_29
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 913
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c953ec734495d9c80800000000000000
+      internalID: -8314391187527158372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_30
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 915
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 321422fe9de871fc0800000000000000
+      internalID: -3524191116723076829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_31
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 895
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd09601b49676adb0800000000000000
+      internalID: -4781003573409967909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_32
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 878
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc19163205044c920800000000000000
+      internalID: 3009601163925492173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_33
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 879
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c7ba3c02463e5b0800000000000000
+      internalID: -5340314641246749696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_34
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 871
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c5464548a62b1a50800000000000000
+      internalID: 6492825791943296456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_35
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 885
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84aa722cfe4171a70800000000000000
+      internalID: 8797523417078671944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_36
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 895
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae1e303762e9d0570800000000000000
+      internalID: 8434571565110387178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_37
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 892
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8909a0fc7c5ee6480800000000000000
+      internalID: -8903926766930063208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_38
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 893
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb560f434f30df6b0800000000000000
+      internalID: -5261044442303797829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_39
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 871
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 334bac61f5de229f0800000000000000
+      internalID: -494572016397274061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_40
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 876
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02e2978274869bdc0800000000000000
+      internalID: -3622749770411856352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_41
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 845
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75619240dacccb100800000000000000
+      internalID: 125199933130741335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_42
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 867
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d628cf8028d90cd50800000000000000
+      internalID: 6755572622877819501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_43
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 771
+        width: 65
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acda6ad4578510080800000000000000
+      internalID: -9222993301040878134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_44
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 863
+        width: 10
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b14574c5752e93f20800000000000000
+      internalID: 3402999858293330971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_45
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 865
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd5a862c35f535d00800000000000000
+      internalID: 960215958908610011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_46
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 861
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cccbec33e3d809f20800000000000000
+      internalID: 3427394614725622988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_47
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 869
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc0a97d05f55eeab0800000000000000
+      internalID: -4976946027216396081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_48
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 863
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9e92f599f3dfe340800000000000000
+      internalID: 4895364388891041437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_49
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 863
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80fd7d77623c3d1d0800000000000000
+      internalID: -3327101129709854968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_50
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 862
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bafe8f7cb6d29a020800000000000000
+      internalID: 2353462221217525675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_51
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 835
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 371f6aa4ad1b257e0800000000000000
+      internalID: -1778163351744482957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_52
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 833
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052f20832208d0fc0800000000000000
+      internalID: -3527022048704269744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_53
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 847
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4f43ce99b54ea440800000000000000
+      internalID: 4948969704061620043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_54
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 845
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fdb7633b6b8ce630800000000000000
+      internalID: 3957691465092021749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_55
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 835
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c867a945147a8420800000000000000
+      internalID: 2633044566930319559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_56
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 832
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f66d15cac6cb2490800000000000000
+      internalID: -7769898157904926991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_57
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 807
+        width: 15
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a0e60b6ef52d200800000000000000
+      internalID: 203330377592211985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_58
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 801
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fed92566374f05a0800000000000000
+      internalID: -6552940633849733389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_59
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 823
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37ced76be850f6df0800000000000000
+      internalID: -184922949193700237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_60
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 726
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ac7acececa929a00800000000000000
+      internalID: 761841500002352290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 471
+        width: 65
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78d97906884d27630800000000000000
+      internalID: 3923431907594313095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_62
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 555
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acd0d3754f728de30800000000000000
+      internalID: 4528413355710156234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_63
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 553
+        width: 9
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f618a1568f53f9d20800000000000000
+      internalID: 3287405593968148847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_64
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 549
+        width: 135
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6744d3a802179c970800000000000000
+      internalID: 8775669733480285302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_65
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 538
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11f2a03a857f1e990800000000000000
+      internalID: -7358328356082143471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_66
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 551
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408d8cdddc7f76d30800000000000000
+      internalID: 4424777622476085252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_67
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 548
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee1592b0508b7b6b0800000000000000
+      internalID: -5280549706267012626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_68
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 539
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8367cedd48aeaf60800000000000000
+      internalID: 8047554636561212303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_69
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 555
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e790dd10bd8f68530800000000000000
+      internalID: 3857043750402197886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_70
+      rect:
+        serializedVersion: 2
+        x: 1478
+        y: 559
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6b9878fa0a004480800000000000000
+      internalID: -8917116219958977682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_71
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 533
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 913c66a024573cb50800000000000000
+      internalID: 6612257604412818201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_72
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 537
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2bd186aae97993f0800000000000000
+      internalID: -893549002333496531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_73
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 465
+        width: 37
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e2a6d7b17c678a40800000000000000
+      internalID: 5370380316334007011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_74
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 511
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d548edc1e0f3bcc10800000000000000
+      internalID: 2074821383180682333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_75
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 511
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d45a5f70ef368c390800000000000000
+      internalID: -7797872812085631667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_76
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 495
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 802d4975f84348320800000000000000
+      internalID: 2559228278507622920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_77
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 446
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 718f71fee55cf4f70800000000000000
+      internalID: 9173767977505912855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_78
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 444
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14e10fee383a3a650800000000000000
+      internalID: 6243013295510396481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_79
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 423
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35d365fb4d061840800000000000000
+      internalID: 5194353840109114682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_80
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 404
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e22eaf4ac6c907760800000000000000
+      internalID: 7453629373736477230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_81
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 383
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad3b8c37ae6048700800000000000000
+      internalID: 541565459225949146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_82
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 352
+        width: 31
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bf27de0bc956cd10800000000000000
+      internalID: 2145501001150836657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_83
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 319
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb87944186c7eeaf0800000000000000
+      internalID: -365217733311629122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_84
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 303
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69c825ec71392e7e0800000000000000
+      internalID: -1737664775756542826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_85
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 288
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bb3370dded0ddad0800000000000000
+      internalID: -2675967288532583502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_86
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 109
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e8c6171fff74dab0800000000000000
+      internalID: -4984218154011539229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_87
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 142
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f9791b99cdc87c20800000000000000
+      internalID: 3204537400648366577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_88
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 141
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa8d2e68777a85f50800000000000000
+      internalID: 6870425363359652010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_89
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 119
+        width: 7
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c738110065a80c80800000000000000
+      internalID: -8356247276832147515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_90
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 111
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdc9bd0442f0a7690800000000000000
+      internalID: -7603748372480287524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_91
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 109
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5475e5a1fcd27a80800000000000000
+      internalID: -8470465018701974434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_92
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 111
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55f52196205bffe00800000000000000
+      internalID: 1080781457549582165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_93
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 103
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 559682387b186bbe0800000000000000
+      internalID: -1461838403855685291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_94
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 89
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f48b1ebba4bb5fb0800000000000000
+      internalID: -4657930739862764295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_95
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 103
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bd79f9a0ed8120a0800000000000000
+      internalID: -6908084357345739337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_96
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 99
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b5a2d49b884cc3d0800000000000000
+      internalID: -3185091072123296334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_97
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 95
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c96d5af74ac33c0800000000000000
+      internalID: -4378443869560857599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_98
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 66
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7626fa6d8bd7dd890800000000000000
+      internalID: -7431645577262177689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_99
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 65
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11d6f9c6c3ea35450800000000000000
+      internalID: 6076391896796589329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_100
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 81
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 128247f3600f2eb90800000000000000
+      internalID: -7213939743469066207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_101
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 89
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e53bc91c58770510800000000000000
+      internalID: 1515312136598533607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_102
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 79
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b68d868edf12ed7a0800000000000000
+      internalID: -6350601050136192917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_103
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 65
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c6a21da3a618dfa0800000000000000
+      internalID: -5775841629863500092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_104
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 79
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c7d294874d696a50800000000000000
+      internalID: 6514858489902454729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_105
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 65
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 606519d99e4f58220800000000000000
+      internalID: 2487663653400172038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_106
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 45
+        width: 9
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d81db8819a3976ab0800000000000000
+      internalID: -5014877305583185523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_107
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 66
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75bc52241f54a5a70800000000000000
+      internalID: 8816436123030375255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_108
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 45
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cdd4e3e1cc458420800000000000000
+      internalID: 2631593952903749061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_109
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 47
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bab387facc0d723c0800000000000000
+      internalID: -4384306134686090325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_110
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 15
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67694dfe73fc04a70800000000000000
+      internalID: 8809268710290527862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_111
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 14
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae24942763136ca70800000000000000
+      internalID: 8846812627931316970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_112
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 31
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a40c998abe0c52e0800000000000000
+      internalID: -2135815928945048409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook_minhview_113
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 13
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0de379c383cbed250800000000000000
+      internalID: 5971417105660591824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      notebook_minhview_0: -5555959332531117958
+      notebook_minhview_1: 6569759384906065768
+      notebook_minhview_10: 255294088581327678
+      notebook_minhview_100: -7213939743469066207
+      notebook_minhview_101: 1515312136598533607
+      notebook_minhview_102: -6350601050136192917
+      notebook_minhview_103: -5775841629863500092
+      notebook_minhview_104: 6514858489902454729
+      notebook_minhview_105: 2487663653400172038
+      notebook_minhview_106: -5014877305583185523
+      notebook_minhview_107: 8816436123030375255
+      notebook_minhview_108: 2631593952903749061
+      notebook_minhview_109: -4384306134686090325
+      notebook_minhview_11: -44581863632033350
+      notebook_minhview_110: 8809268710290527862
+      notebook_minhview_111: 8846812627931316970
+      notebook_minhview_112: -2135815928945048409
+      notebook_minhview_113: 5971417105660591824
+      notebook_minhview_12: 5949013476771071858
+      notebook_minhview_13: -2507108438189563630
+      notebook_minhview_14: 214732840839742700
+      notebook_minhview_15: 8512406709224689632
+      notebook_minhview_16: -2170950478021193198
+      notebook_minhview_17: 112723858175815371
+      notebook_minhview_18: 3125461944647790089
+      notebook_minhview_19: 5261460917435879159
+      notebook_minhview_2: -3431650390615669927
+      notebook_minhview_20: 2632200012800138570
+      notebook_minhview_21: -411778097356431183
+      notebook_minhview_22: -4366679214163197675
+      notebook_minhview_23: 2202973603029996966
+      notebook_minhview_24: 7080078449637189243
+      notebook_minhview_25: 4635470269767761651
+      notebook_minhview_26: -5104554839419734726
+      notebook_minhview_27: 4696624437459762915
+      notebook_minhview_28: 7524692660046415371
+      notebook_minhview_29: -8314391187527158372
+      notebook_minhview_3: -5152084039412641865
+      notebook_minhview_30: -3524191116723076829
+      notebook_minhview_31: -4781003573409967909
+      notebook_minhview_32: 3009601163925492173
+      notebook_minhview_33: -5340314641246749696
+      notebook_minhview_34: 6492825791943296456
+      notebook_minhview_35: 8797523417078671944
+      notebook_minhview_36: 8434571565110387178
+      notebook_minhview_37: -8903926766930063208
+      notebook_minhview_38: -5261044442303797829
+      notebook_minhview_39: -494572016397274061
+      notebook_minhview_4: -108269198956885135
+      notebook_minhview_40: -3622749770411856352
+      notebook_minhview_41: 125199933130741335
+      notebook_minhview_42: 6755572622877819501
+      notebook_minhview_43: -9222993301040878134
+      notebook_minhview_44: 3402999858293330971
+      notebook_minhview_45: 960215958908610011
+      notebook_minhview_46: 3427394614725622988
+      notebook_minhview_47: -4976946027216396081
+      notebook_minhview_48: 4895364388891041437
+      notebook_minhview_49: -3327101129709854968
+      notebook_minhview_5: 6398455487510542777
+      notebook_minhview_50: 2353462221217525675
+      notebook_minhview_51: -1778163351744482957
+      notebook_minhview_52: -3527022048704269744
+      notebook_minhview_53: 4948969704061620043
+      notebook_minhview_54: 3957691465092021749
+      notebook_minhview_55: 2633044566930319559
+      notebook_minhview_56: -7769898157904926991
+      notebook_minhview_57: 203330377592211985
+      notebook_minhview_58: -6552940633849733389
+      notebook_minhview_59: -184922949193700237
+      notebook_minhview_6: -7736603623259073887
+      notebook_minhview_60: 761841500002352290
+      notebook_minhview_61: 3923431907594313095
+      notebook_minhview_62: 4528413355710156234
+      notebook_minhview_63: 3287405593968148847
+      notebook_minhview_64: 8775669733480285302
+      notebook_minhview_65: -7358328356082143471
+      notebook_minhview_66: 4424777622476085252
+      notebook_minhview_67: -5280549706267012626
+      notebook_minhview_68: 8047554636561212303
+      notebook_minhview_69: 3857043750402197886
+      notebook_minhview_7: -3827963713141984789
+      notebook_minhview_70: -8917116219958977682
+      notebook_minhview_71: 6612257604412818201
+      notebook_minhview_72: -893549002333496531
+      notebook_minhview_73: 5370380316334007011
+      notebook_minhview_74: 2074821383180682333
+      notebook_minhview_75: -7797872812085631667
+      notebook_minhview_76: 2559228278507622920
+      notebook_minhview_77: 9173767977505912855
+      notebook_minhview_78: 6243013295510396481
+      notebook_minhview_79: 5194353840109114682
+      notebook_minhview_8: 8622151089110059141
+      notebook_minhview_80: 7453629373736477230
+      notebook_minhview_81: 541565459225949146
+      notebook_minhview_82: 2145501001150836657
+      notebook_minhview_83: -365217733311629122
+      notebook_minhview_84: -1737664775756542826
+      notebook_minhview_85: -2675967288532583502
+      notebook_minhview_86: -4984218154011539229
+      notebook_minhview_87: 3204537400648366577
+      notebook_minhview_88: 6870425363359652010
+      notebook_minhview_89: -8356247276832147515
+      notebook_minhview_9: -6178591308495855013
+      notebook_minhview_90: -7603748372480287524
+      notebook_minhview_91: -8470465018701974434
+      notebook_minhview_92: 1080781457549582165
+      notebook_minhview_93: -1461838403855685291
+      notebook_minhview_94: -4657930739862764295
+      notebook_minhview_95: -6908084357345739337
+      notebook_minhview_96: -3185091072123296334
+      notebook_minhview_97: -4378443869560857599
+      notebook_minhview_98: -7431645577262177689
+      notebook_minhview_99: 6076391896796589329
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
