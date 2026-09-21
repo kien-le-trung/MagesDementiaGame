@@ -9,6 +9,20 @@ namespace MagesDementiaGame
         Clear
     }
 
+    public enum ResolutionOutcome
+    {
+        Good,
+        Mixed,
+        Bad
+    }
+
+    public enum EncouragementChoice
+    {
+        NotChosen,
+        ValidateAndWait,
+        PressureToLeave
+    }
+
     [Serializable]
     public struct ReplayEffects
     {
@@ -126,6 +140,48 @@ namespace MagesDementiaGame
             effects.Distress = Clamp(effects.Distress, 0, 8);
             effects.Agency = Clamp(effects.Agency, -1, 4);
             return effects;
+        }
+
+        public static int CalculateCareScore(
+            int recognition,
+            int trust,
+            int distress,
+            int clarity,
+            EnvironmentChoice environment,
+            bool photoRestored)
+        {
+            var environmentSupport = environment switch
+            {
+                EnvironmentChoice.LowerTelevision => 1,
+                EnvironmentChoice.TurnOffTelevision => 2,
+                _ => 0
+            };
+
+            return Clamp(recognition, 0, 2) + Clamp(trust, 0, 2) + Clamp(clarity, 0, 2) +
+                   (2 - Clamp(distress, 0, 2)) + environmentSupport + (photoRestored ? 1 : 0);
+        }
+
+        public static int CalculateCareScore(
+            ApproachChoice approach,
+            EnvironmentChoice environment,
+            bool photoRestored)
+        {
+            return approach switch
+            {
+                ApproachChoice.CallFromDistance =>
+                    CalculateCareScore(0, 1, 1, 1, environment, photoRestored),
+                ApproachChoice.ApproachQuickly =>
+                    CalculateCareScore(0, 0, 2, 0, environment, photoRestored),
+                ApproachChoice.EnterViewAndIntroduce =>
+                    CalculateCareScore(2, 2, 0, 2, environment, photoRestored),
+                _ => CalculateCareScore(1, 1, 1, 1, environment, photoRestored)
+            };
+        }
+
+        public static ResolutionOutcome DetermineResolutionOutcome(int careScore)
+        {
+            if (careScore >= 5) return ResolutionOutcome.Good;
+            return careScore >= 2 ? ResolutionOutcome.Mixed : ResolutionOutcome.Bad;
         }
 
         private static SpeechClarity LowerClarity(SpeechClarity clarity)

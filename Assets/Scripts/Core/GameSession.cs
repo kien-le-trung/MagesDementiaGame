@@ -41,6 +41,7 @@ namespace MagesDementiaGame
     public sealed class GameSession : MonoBehaviour
     {
         public const string MinhViewSceneName = "MinhView";
+        public const string StartSceneName = "StartScene";
         public const string LanViewSceneName = "LanView";
         public const string ResolutionSceneName = "ResolutionScene";
 
@@ -61,6 +62,10 @@ namespace MagesDementiaGame
         public int ApproachClarityScore { get; private set; }
         public bool HasAiApproachEvaluation { get; private set; }
         public ReplayEffects ReplayEffects { get; private set; }
+        public int CareScore { get; private set; }
+        public ResolutionOutcome CalculatedResolutionOutcome { get; private set; } = ResolutionOutcome.Good;
+        public EncouragementChoice SelectedEncouragementChoice { get; private set; }
+        public bool MinhLeftWithLan { get; private set; }
         public bool IsTransitioning { get; private set; }
         private SceneTransitionController transitionController;
 
@@ -92,7 +97,7 @@ namespace MagesDementiaGame
         private static void EnsurePlayableStartingScene()
         {
             var activeSceneName = SceneManager.GetActiveScene().name;
-            if (activeSceneName == MinhViewSceneName || activeSceneName == LanViewSceneName ||
+            if (activeSceneName == StartSceneName || activeSceneName == MinhViewSceneName || activeSceneName == LanViewSceneName ||
                 activeSceneName == ResolutionSceneName)
             {
                 return;
@@ -239,6 +244,19 @@ namespace MagesDementiaGame
                     ApproachDistressScore,
                     ApproachClarityScore);
             }
+            CareScore = HasAiApproachEvaluation
+                ? OutcomeCalculator.CalculateCareScore(
+                    ApproachRecognitionScore,
+                    ApproachTrustScore,
+                    ApproachDistressScore,
+                    ApproachClarityScore,
+                    SelectedEnvironmentChoice,
+                    PhotoRestored)
+                : OutcomeCalculator.CalculateCareScore(
+                    SelectedApproachChoice,
+                    SelectedEnvironmentChoice,
+                    PhotoRestored);
+            CalculatedResolutionOutcome = OutcomeCalculator.DetermineResolutionOutcome(CareScore);
             Phase = NarrativePhase.Replay;
             NotifyChanged();
 
@@ -266,6 +284,18 @@ namespace MagesDementiaGame
                 Phase = NarrativePhase.Reflection;
                 NotifyChanged();
             }, CompleteTransition, true);
+        }
+
+        public void SetEncouragementChoice(EncouragementChoice choice)
+        {
+            SelectedEncouragementChoice = choice;
+            NotifyChanged();
+        }
+
+        public void RecordResolutionResult(bool minhLeftWithLan)
+        {
+            MinhLeftWithLan = minhLeftWithLan;
+            NotifyChanged();
         }
 
         public void Restart()
@@ -298,6 +328,10 @@ namespace MagesDementiaGame
             ApproachClarityScore = 0;
             HasAiApproachEvaluation = false;
             ReplayEffects = OutcomeCalculator.Baseline;
+            CareScore = 0;
+            CalculatedResolutionOutcome = ResolutionOutcome.Good;
+            SelectedEncouragementChoice = EncouragementChoice.NotChosen;
+            MinhLeftWithLan = false;
         }
 
         private void NotifyChanged()

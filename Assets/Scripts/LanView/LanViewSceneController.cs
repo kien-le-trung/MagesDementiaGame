@@ -62,7 +62,7 @@ namespace MagesDementiaGame
 
         [Header("Natural-language approach")]
         [Tooltip("Local development: http://127.0.0.1:8787/evaluate-approach. Replace with the deployed workers.dev URL before building.")]
-        [SerializeField] private string approachJudgeUrl = "http://127.0.0.1:8787/evaluate-approach";
+        [SerializeField] private string approachJudgeUrl = "https://mages-approach-judge.ltkien0705.workers.dev/evaluate-approach";
         [SerializeField] private GameObject approachEntryPanel;
         [SerializeField] private InputField approachInput;
         [SerializeField] private Button submitApproachButton;
