@@ -4,23 +4,19 @@ namespace MagesDementiaGame
 {
     public sealed class RecipientPhotoInteractable : MonoBehaviour, IInteractable
     {
-        private RecipientSceneController controller;
+        private ResolutionSceneController controller;
 
-        public string Prompt => controller != null && controller.CanExaminePhotograph
-            ? controller.PhotographIsVisible
-                ? "[E] Examine the family photograph"
-                : "[E] Examine the empty photograph space"
-            : "The television noise pulls at your attention";
-        public bool CanInteract => controller != null && controller.CanExaminePhotograph;
+        public string Prompt => "This interaction belongs to the retired recipient flow";
+        public bool CanInteract => false;
 
-        public void Initialize(RecipientSceneController sceneController)
+        public void Initialize(ResolutionSceneController sceneController)
         {
             controller = sceneController;
         }
 
         public void Interact(InteractionController interactor)
         {
-            controller?.ExaminePhotograph();
+            // Retained only so older prefab instances deserialize without a missing script.
         }
     }
 

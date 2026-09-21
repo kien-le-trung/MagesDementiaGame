@@ -44,9 +44,13 @@ namespace MagesDementiaGame
                 EnvironmentChoice.LowerTelevision =>
                     "Lowering the TV reduced competition. Minh could catch more of Lan's request, though some words were still lost.",
                 _ =>
-                    "Turning off the TV made speech clearer. Restoring the photograph also gave Minh a familiar anchor in the room."
+                    "Turning off the TV removed competing speech and made Lan's request easier to hear."
             };
         }
+
+        public static string PhotographReflection(bool restored) => restored
+            ? "Finding and restoring the photograph gave Minh a familiar anchor in the room."
+            : "The missing photograph left Minh without one of the room's familiar anchors.";
 
         public static string ApproachReflection(ApproachChoice choice)
         {
@@ -71,6 +75,24 @@ namespace MagesDementiaGame
                     "Reassurance softened the moment, but did not answer the specific concern about the missing photograph.",
                 _ =>
                     "Acknowledging the concern and offering help lowered distress and let Minh take part in what happened next."
+            };
+        }
+
+        public static string ResolutionInspection(GameSession session, ResolutionInspectionTarget target)
+        {
+            return target switch
+            {
+                ResolutionInspectionTarget.Television =>
+                    (session.SelectedEnvironmentChoice == EnvironmentChoice.NotChosen
+                        ? "The television fills the room with competing speech, making it harder for Minh to hold onto one voice."
+                        : EnvironmentReflection(session.SelectedEnvironmentChoice)) +
+                    "\n\nReducing competing sound can make it easier for a person with dementia to focus on one voice.",
+                ResolutionInspectionTarget.Photograph => PhotographReflection(session.PhotoRestored) +
+                    "\n\nFamiliar objects can support orientation and provide a reassuring connection to people and place.",
+                _ => (session.SelectedApproachChoice == ApproachChoice.NotChosen
+                        ? "Moving into Minh's space before he can recognize Lan increases uncertainty and distress."
+                        : ApproachReflection(session.SelectedApproachChoice)) +
+                    "\n\nApproaching within view, allowing time, and identifying yourself can reduce surprise and support recognition."
             };
         }
 

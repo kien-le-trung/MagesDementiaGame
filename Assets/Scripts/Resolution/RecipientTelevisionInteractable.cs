@@ -4,14 +4,12 @@ namespace MagesDementiaGame
 {
     public sealed class RecipientTelevisionInteractable : MonoBehaviour, IInteractable
     {
-        private RecipientSceneController controller;
+        private ResolutionSceneController controller;
 
-        public string Prompt => controller != null && controller.CanNoticeTelevision
-            ? "[E] Listen to the television"
-            : "Something important is missing from the table";
-        public bool CanInteract => controller != null && controller.CanNoticeTelevision;
+        public string Prompt => "This interaction belongs to the retired recipient flow";
+        public bool CanInteract => false;
 
-        public void Initialize(RecipientSceneController sceneController) => controller = sceneController;
-        public void Interact(InteractionController interactor) => controller?.NoticeTelevision();
+        public void Initialize(ResolutionSceneController sceneController) => controller = sceneController;
+        public void Interact(InteractionController interactor) { }
     }
 }

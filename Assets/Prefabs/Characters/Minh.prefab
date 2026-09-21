@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9114037420475151611}
   - component: {fileID: 3497248712346100522}
   - component: {fileID: 1497564690254719848}
+  - component: {fileID: 910000000000000001}
   m_Layer: 0
   m_Name: Minh
   m_TagString: Untagged
@@ -37,6 +38,21 @@ Transform:
   - {fileID: 982508830202839012}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &910000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3589450173193638162}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1100000000000000000000000000002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MagesDementiaGame.CompanionFollowController
+  moveSpeed: 1.2
+  sampleDistance: 0.25
+  followDistance: 1.15
 --- !u!50 &4266077891415622152
 Rigidbody2D:
   serializedVersion: 5

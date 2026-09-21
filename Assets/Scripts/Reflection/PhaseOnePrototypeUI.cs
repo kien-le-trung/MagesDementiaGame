@@ -80,6 +80,7 @@ namespace MagesDementiaGame
             GUILayout.Space(20f);
 
             DrawReflectionCard("Environment", PhaseOneContent.EnvironmentReflection(session.SelectedEnvironmentChoice));
+            DrawReflectionCard("Photograph", PhaseOneContent.PhotographReflection(session.PhotoRestored));
             DrawReflectionCard("Approach", PhaseOneContent.ApproachReflection(session.SelectedApproachChoice));
             DrawReflectionCard("Response", PhaseOneContent.ResponseReflection(session.SelectedResponseChoice));
 

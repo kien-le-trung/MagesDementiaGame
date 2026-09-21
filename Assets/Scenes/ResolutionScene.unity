@@ -129,9 +129,8 @@ GameObject:
   m_Component:
   - component: {fileID: 900001}
   - component: {fileID: 900002}
-  - component: {fileID: 900003}
   m_Layer: 0
-  m_Name: Recipient Scene
+  m_Name: Resolution Scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,19 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomView: {fileID: 1000383151}
-  inspection: {fileID: 900003}
---- !u!114 &900003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d6e79472d754d6c84b4593860a309c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MagesDementiaGame.InspectionController
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

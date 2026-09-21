@@ -126,7 +126,7 @@ namespace MagesDementiaGame
         private void SelectEnvironment(int index)
         {
             var choice = index == 0 ? EnvironmentChoice.LeaveTelevisionOn :
-                         index == 1 ? EnvironmentChoice.LowerTelevision : EnvironmentChoice.TurnOffTelevisionAndRestorePhoto;
+                         index == 1 ? EnvironmentChoice.LowerTelevision : EnvironmentChoice.TurnOffTelevision;
             session.SetEnvironmentChoice(choice);
             environmentController.ApplyCurrentChoice();
             FlowState = CaregiverFlowState.MoveToApproachMarker;
@@ -276,7 +276,7 @@ namespace MagesDementiaGame
             GUILayout.Space(16f);
             DrawButton("1  Leave the television on", 0, session.SelectedEnvironmentChoice == EnvironmentChoice.LeaveTelevisionOn, SelectEnvironment);
             DrawButton("2  Lower the television volume", 1, session.SelectedEnvironmentChoice == EnvironmentChoice.LowerTelevision, SelectEnvironment);
-            DrawButton("3  Turn off the TV and restore the photograph", 2, session.SelectedEnvironmentChoice == EnvironmentChoice.TurnOffTelevisionAndRestorePhoto, SelectEnvironment);
+            DrawButton("3  Turn off the television", 2, session.SelectedEnvironmentChoice == EnvironmentChoice.TurnOffTelevision, SelectEnvironment);
             DrawCancelHint();
         }
 

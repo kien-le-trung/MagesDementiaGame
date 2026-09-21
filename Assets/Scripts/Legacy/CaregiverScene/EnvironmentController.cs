@@ -36,7 +36,7 @@ namespace MagesDementiaGame
                     roomView.SetTelevisionState(TelevisionState.Lowered);
                     roomView.SetPhotoVisible(false);
                     break;
-                case EnvironmentChoice.TurnOffTelevisionAndRestorePhoto:
+                case EnvironmentChoice.TurnOffTelevision:
                     roomView.SetTelevisionState(TelevisionState.Off);
                     roomView.SetPhotoVisible(true);
                     break;

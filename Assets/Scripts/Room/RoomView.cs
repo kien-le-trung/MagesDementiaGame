@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MagesDementiaGame
 {
-    public enum RoomPerspective { Caregiver, Recipient }
+    public enum RoomPerspective { Caregiver, Recipient, Resolution }
     public enum TelevisionState { On, Lowered, Off }
 
     /// <summary>Configures the authored SharedRoom prefab without creating scene objects.</summary>
@@ -26,6 +26,15 @@ namespace MagesDementiaGame
         [SerializeField] private InteractionController minhInteractionController;
         [SerializeField] private WaypointCharacterMover lanMover;
         [SerializeField] private WaypointCharacterMover minhMover;
+        [Header("Resolution")]
+        [SerializeField] private ResolutionInspectable resolutionTelevision;
+        [SerializeField] private ResolutionInspectable resolutionPhotograph;
+        [SerializeField] private ResolutionInspectable resolutionMinh;
+        private CompanionFollowController minhFollower;
+        [SerializeField] private GameObject sofaWithMinh;
+        [SerializeField] private Transform resolutionLanSpawn;
+        [SerializeField] private Transform resolutionMinhSeat;
+        [SerializeField] private Transform resolutionExit;
         [Header("Authored positions")]
         [SerializeField] private Transform lanDoorway;
         [SerializeField] private Transform caregiverSpawn;
@@ -55,9 +64,12 @@ namespace MagesDementiaGame
         public Vector3 LanCloseApproachPosition => lanCloseApproach.position;
         public Vector3 LanIntroductionPosition => lanIntroduction.position;
         public Vector3[] LanEntranceWaypoints => Positions(lanEntranceWaypoints);
+        public bool IsLanAtResolutionExit => resolutionExit != null && Vector2.Distance(lan.transform.position, resolutionExit.position) < 1.25f;
+        public bool IsMinhAtResolutionExit => resolutionExit != null && Vector2.Distance(minh.transform.position, resolutionExit.position) < 2.25f;
 
         public bool Configure(RoomPerspective perspective, IInteractionHost interactionHost)
         {
+            minhFollower = minh != null ? minh.GetComponent<CompanionFollowController>() : null;
             if (!ValidateReferences()) { enabled = false; return false; }
             RoomCamera = Camera.main;
             if (RoomCamera == null)
@@ -73,6 +85,8 @@ namespace MagesDementiaGame
             minh.GetComponentInChildren<CharacterVisualController>(true)?.Initialize(artSet.Minh);
 
             var caregiver = perspective == RoomPerspective.Caregiver;
+            var recipient = perspective == RoomPerspective.Recipient;
+            var resolution = perspective == RoomPerspective.Resolution;
             var caregiverTelevision = television.GetComponent<TelevisionInteractable>();
             var recipientTelevision = television.GetComponent<RecipientTelevisionInteractable>();
             var recipientPhoto = photographSpot.GetComponent<RecipientPhotoInteractable>();
@@ -86,19 +100,61 @@ namespace MagesDementiaGame
             }
 
             caregiverTelevision.enabled = caregiver;
-            recipientTelevision.enabled = !caregiver;
-            recipientPhoto.enabled = !caregiver;
+            recipientTelevision.enabled = recipient;
+            recipientPhoto.enabled = recipient;
             approachMarker.enabled = caregiver;
-            ConfigureCharacter(lan, lanPlayerController, lanInteractionController, caregiver, 3f);
-            ConfigureCharacter(minh, minhPlayerController, minhInteractionController, !caregiver, 1.6f);
-            PlayerController = caregiver ? lanPlayerController : minhPlayerController;
-            PlayerInteractionController = caregiver ? lanInteractionController : minhInteractionController;
+            resolutionTelevision.enabled = resolution;
+            resolutionPhotograph.enabled = resolution;
+            resolutionMinh.enabled = resolution;
+            ConfigureCharacter(lan, lanPlayerController, lanInteractionController, caregiver || resolution,
+                resolution ? 2.2f : 3f);
+            ConfigureCharacter(minh, minhPlayerController, minhInteractionController, recipient, 1.6f);
+            PlayerController = caregiver || resolution ? lanPlayerController : minhPlayerController;
+            PlayerInteractionController = caregiver || resolution ? lanInteractionController : minhInteractionController;
             PlayerInteractionController.Initialize(interactionHost);
-            lan.transform.position = caregiver ? caregiverSpawn.position : lanDoorway.position;
-            minh.transform.position = recipientSpawn.position;
-            lan.SetActive(caregiver);
+            lan.transform.position = resolution ? resolutionLanSpawn.position : caregiver ? caregiverSpawn.position : lanDoorway.position;
+            minh.transform.position = resolution ? resolutionMinhSeat.position : recipientSpawn.position;
+            lan.SetActive(caregiver || resolution);
+            minh.SetActive(true);
+            if (sofaWithMinh != null)
+            {
+                var combinedRenderer = sofaWithMinh.GetComponent<SpriteRenderer>();
+                var hasCombinedArt = combinedRenderer != null && combinedRenderer.sprite != null;
+                sofaWithMinh.SetActive(resolution && hasCombinedArt);
+                if (resolution && hasCombinedArt) minh.SetActive(false);
+            }
             return true;
         }
+
+        public void InitializeResolutionInteractions(ResolutionSceneController controller)
+        {
+            resolutionTelevision.Initialize(controller);
+            resolutionPhotograph.Initialize(controller);
+            resolutionMinh.Initialize(controller);
+        }
+
+        public void SetResolutionInspectionAvailable(ResolutionInspectionTarget target, bool available)
+        {
+            var inspectable = target switch
+            {
+                ResolutionInspectionTarget.Television => resolutionTelevision,
+                ResolutionInspectionTarget.Photograph => resolutionPhotograph,
+                _ => resolutionMinh
+            };
+            inspectable.SetInspected(!available);
+        }
+
+        public void BeginResolutionEscort()
+        {
+            sofaWithMinh?.SetActive(false);
+            minh.SetActive(true);
+            minh.transform.position = resolutionMinhSeat.position;
+            var body = minh.GetComponent<Rigidbody2D>();
+            body.bodyType = RigidbodyType2D.Kinematic;
+            minhFollower.BeginFollowing(lan.transform);
+        }
+
+        public void StopResolutionEscort() => minhFollower.StopFollowing();
 
         public Vector3[] BuildLanApproachRoute(Vector3 destination)
         {
@@ -115,11 +171,13 @@ namespace MagesDementiaGame
         {
             var renderer = television.GetComponent<SpriteRenderer>();
             if (renderer == null) return;
+            // Preserve the actual television-stand artwork in every state. A cool
+            // screen tint distinguishes an active TV without blacking out the cabinet.
             renderer.color = state switch
             {
-                TelevisionState.Lowered => Color.Lerp(televisionOnColor, Color.black, 0.4f),
-                TelevisionState.Off => Color.Lerp(televisionOnColor, Color.black, 0.75f),
-                _ => televisionOnColor
+                TelevisionState.Lowered => new Color(0.82f, 0.9f, 0.94f, televisionOnColor.a),
+                TelevisionState.Off => Color.white,
+                _ => new Color(0.72f, 0.9f, 1f, televisionOnColor.a)
             };
         }
 
@@ -143,7 +201,10 @@ namespace MagesDementiaGame
                 lanMover != null && minhMover != null && lanDoorway != null && caregiverSpawn != null &&
                 recipientSpawn != null && approachStaging != null && lanCloseApproach != null &&
                 lanIntroduction != null && lanEntranceWaypoints != null && lanEntranceWaypoints.Length > 0 &&
-                lanApproachWaypoints != null && lanApproachWaypoints.Length > 0) return true;
+                lanApproachWaypoints != null && lanApproachWaypoints.Length > 0 &&
+                resolutionTelevision != null && resolutionPhotograph != null && resolutionMinh != null &&
+                minhFollower != null && sofaWithMinh != null && resolutionLanSpawn != null &&
+                resolutionMinhSeat != null && resolutionExit != null) return true;
 
             Debug.LogError($"{name}: SharedRoom prefab is missing required RoomView references. Repair its serialized assignments.", this);
             return false;

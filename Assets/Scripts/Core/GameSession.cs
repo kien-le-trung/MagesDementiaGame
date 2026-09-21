@@ -17,7 +17,7 @@ namespace MagesDementiaGame
         NotChosen,
         LeaveTelevisionOn,
         LowerTelevision,
-        TurnOffTelevisionAndRestorePhoto
+        TurnOffTelevision
     }
 
     public enum ApproachChoice
@@ -49,13 +49,17 @@ namespace MagesDementiaGame
         public EnvironmentChoice SelectedEnvironmentChoice { get; private set; }
         public ApproachChoice SelectedApproachChoice { get; private set; }
         public ResponseChoice SelectedResponseChoice { get; private set; }
+        public bool PhotoRestored { get; private set; }
+        public string MinhFirstSpokenLine { get; private set; }
+        public string MinhSecondSpokenLine { get; private set; }
         public ReplayEffects ReplayEffects { get; private set; }
         public bool IsTransitioning { get; private set; }
 
         public bool HasAllChoices =>
             SelectedEnvironmentChoice != EnvironmentChoice.NotChosen &&
             SelectedApproachChoice != ApproachChoice.NotChosen &&
-            SelectedResponseChoice != ResponseChoice.NotChosen;
+            SelectedResponseChoice != ResponseChoice.NotChosen &&
+            PhotoRestored;
 
         public event Action StateChanged;
 
@@ -167,6 +171,18 @@ namespace MagesDementiaGame
             NotifyChanged();
         }
 
+        public void SetPhotoRestored(bool restored)
+        {
+            PhotoRestored = restored;
+            NotifyChanged();
+        }
+
+        public void SaveMinhSpokenLine(bool firstAttempt, string spokenLine)
+        {
+            if (firstAttempt) MinhFirstSpokenLine = spokenLine;
+            else MinhSecondSpokenLine = spokenLine;
+        }
+
         public bool BeginReplay()
         {
             if (!HasAllChoices || IsTransitioning)
@@ -178,7 +194,8 @@ namespace MagesDementiaGame
             ReplayEffects = OutcomeCalculator.Calculate(
                 SelectedEnvironmentChoice,
                 SelectedApproachChoice,
-                SelectedResponseChoice);
+                SelectedResponseChoice,
+                PhotoRestored);
             Phase = NarrativePhase.Replay;
             NotifyChanged();
 
@@ -223,6 +240,9 @@ namespace MagesDementiaGame
             SelectedEnvironmentChoice = EnvironmentChoice.NotChosen;
             SelectedApproachChoice = ApproachChoice.NotChosen;
             SelectedResponseChoice = ResponseChoice.NotChosen;
+            PhotoRestored = false;
+            MinhFirstSpokenLine = null;
+            MinhSecondSpokenLine = null;
             ReplayEffects = OutcomeCalculator.Baseline;
         }
 
@@ -241,7 +261,7 @@ namespace MagesDementiaGame
 
             if (scene.name == ResolutionSceneName)
             {
-                RecipientSceneController.BuildForCurrentScene();
+                ResolutionSceneController.BuildForCurrentScene();
                 return;
             }
 

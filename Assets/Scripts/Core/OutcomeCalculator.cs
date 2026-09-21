@@ -39,7 +39,8 @@ namespace MagesDementiaGame
         public static ReplayEffects Calculate(
             EnvironmentChoice environment,
             ApproachChoice approach,
-            ResponseChoice response)
+            ResponseChoice response,
+            bool photoRestored)
         {
             var effects = Baseline;
 
@@ -50,13 +51,18 @@ namespace MagesDementiaGame
                     effects.SpeechClarity = SpeechClarity.Partial;
                     effects.Distress -= 1;
                     break;
-                case EnvironmentChoice.TurnOffTelevisionAndRestorePhoto:
+                case EnvironmentChoice.TurnOffTelevision:
                     effects.Noise = 0;
                     effects.SpeechClarity = SpeechClarity.Clear;
                     effects.Distress -= 2;
-                    effects.ObjectFamiliarity += 2;
-                    effects.PhotoRestored = true;
                     break;
+            }
+
+            if (photoRestored)
+            {
+                effects.ObjectFamiliarity += 2;
+                effects.PhotoRestored = true;
+                effects.Distress -= 1;
             }
 
             switch (approach)

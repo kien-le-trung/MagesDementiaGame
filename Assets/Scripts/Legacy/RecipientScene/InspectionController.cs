@@ -4,32 +4,24 @@ using UnityEngine;
 
 namespace MagesDementiaGame
 {
+    /// <summary>Legacy camera zoom used by the retired recipient-controlled replay.</summary>
     public sealed class InspectionController : MonoBehaviour
     {
         private const float TweenDuration = 0.35f;
         private const float InspectionSize = 2.2f;
-
         private Camera roomCamera;
         private Coroutine routine;
         private Vector3 originalPosition;
         private float originalSize;
         private Action completed;
-
         public bool IsInspecting { get; private set; }
         public bool PhotographVisible { get; private set; }
 
-        public void Initialize(Camera camera)
-        {
-            roomCamera = camera;
-        }
+        public void Initialize(Camera camera) => roomCamera = camera;
 
         public void BeginPhotographInspection(bool photographVisible, Vector3 tablePosition, Action onCompleted)
         {
-            if (IsInspecting || roomCamera == null)
-            {
-                return;
-            }
-
+            if (IsInspecting || roomCamera == null) return;
             IsInspecting = true;
             PhotographVisible = photographVisible;
             completed = onCompleted;
@@ -41,19 +33,10 @@ namespace MagesDementiaGame
 
         public void FinishInspection()
         {
-            if (!IsInspecting)
-            {
-                return;
-            }
-
-            if (routine != null)
-            {
-                StopCoroutine(routine);
-            }
-
-            var startPosition = roomCamera.transform.position;
-            var startSize = roomCamera.orthographicSize;
-            routine = StartCoroutine(TweenCamera(startPosition, originalPosition, startSize, originalSize, Complete));
+            if (!IsInspecting) return;
+            if (routine != null) StopCoroutine(routine);
+            routine = StartCoroutine(TweenCamera(roomCamera.transform.position, originalPosition,
+                roomCamera.orthographicSize, originalSize, Complete));
         }
 
         private IEnumerator TweenCamera(Vector3 from, Vector3 to, float fromSize, float toSize, Action onFinished)
@@ -67,7 +50,6 @@ namespace MagesDementiaGame
                 roomCamera.orthographicSize = Mathf.Lerp(fromSize, toSize, amount);
                 yield return null;
             }
-
             roomCamera.transform.position = to;
             roomCamera.orthographicSize = toSize;
             routine = null;
