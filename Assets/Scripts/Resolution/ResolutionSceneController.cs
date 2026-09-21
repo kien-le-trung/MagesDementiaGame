@@ -104,7 +104,10 @@ namespace MagesDementiaGame
             };
             roomView.SetTelevisionState(state);
             audioController?.SetTelevisionAudio(state, false);
-            roomView.SetPhotoVisible(session.PhotoRestored);
+            // Direct Play Mode entry has no completed LanView session, so use the
+            // restored photograph as ResolutionScene's authored default.
+            var photographVisible = session.Phase != NarrativePhase.Replay || session.PhotoRestored;
+            roomView.SetPhotoVisible(photographVisible);
         }
 
         private void BeginEscort()
