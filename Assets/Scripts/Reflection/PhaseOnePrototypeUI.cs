@@ -92,6 +92,7 @@ namespace MagesDementiaGame
             GUILayout.Space(24f);
             if (GUILayout.Button("Restart and try different choices", buttonStyle, GUILayout.Height(50f)))
             {
+                FindFirstObjectByType<SceneAudioController>()?.PlayUiClick();
                 session.Restart();
             }
         }

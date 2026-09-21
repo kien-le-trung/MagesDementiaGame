@@ -32,6 +32,7 @@ namespace MagesDementiaGame
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            controller?.NotifyTableDragStarted();
             acceptedThisDrag = false;
             canvasGroup.blocksRaycasts = false;
             transform.SetParent(rootCanvas.transform, true);
@@ -47,6 +48,7 @@ namespace MagesDementiaGame
         {
             canvasGroup.blocksRaycasts = true;
             if (acceptedThisDrag) return;
+            controller?.NotifyTableInvalidDrop();
             IsPlaced = false;
             transform.SetParent(inventoryParent, false);
             rectTransform.anchoredPosition = inventoryPosition;

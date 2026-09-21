@@ -15,6 +15,7 @@ namespace MagesDementiaGame
 
         private readonly bool[] inspected = new bool[3];
         private GameSession session;
+        private SceneAudioController audioController;
         private string interactionPrompt;
         private string panelText;
         private Action panelClosedAction;
@@ -34,7 +35,11 @@ namespace MagesDementiaGame
             else Debug.LogError("ResolutionScene requires an authored ResolutionSceneController and SharedRoom prefab.");
         }
 
-        private void Awake() => session = GameSession.EnsureInstance();
+        private void Awake()
+        {
+            session = GameSession.EnsureInstance();
+            audioController = GetComponent<SceneAudioController>();
+        }
         private void Start() => Initialize();
 
         private void Update()
@@ -53,15 +58,18 @@ namespace MagesDementiaGame
             if (FlowState != ResolutionFlowState.InspectConsequences || panelOpen) return;
             var index = (int)target;
             if (inspected[index]) return;
+            audioController?.PlayUiClick();
             inspected[index] = true;
             roomView.SetResolutionInspectionAvailable(target, false);
             ShowPanel(PhaseOneContent.ResolutionInspection(session, target));
+            audioController?.PlayConfirm();
             if (CompletedInspectionCount == inspected.Length) FlowState = ResolutionFlowState.InviteMinh;
         }
 
         public void InviteMinh()
         {
             if (FlowState != ResolutionFlowState.InviteMinh || panelOpen) return;
+            audioController?.PlayUiClick();
             ShowPanel("Lan gives Minh time to stand. \"Would you like to walk outside with me?\"\n\n" +
                       "Minh agrees. Walk toward the doorway slowly enough for him to follow.", BeginEscort);
         }
@@ -81,6 +89,7 @@ namespace MagesDementiaGame
             }
             if (!roomView.Configure(RoomPerspective.Resolution, this)) return;
             initialized = true;
+            audioController?.PlayReflectionMusic();
             FlowState = ResolutionFlowState.InspectConsequences;
             roomView.InitializeResolutionInteractions(this);
             ApplyResolutionEnvironment();
@@ -96,11 +105,13 @@ namespace MagesDementiaGame
                 _ => TelevisionState.On
             };
             roomView.SetTelevisionState(state);
+            audioController?.SetTelevisionAudio(state, false);
             roomView.SetPhotoVisible(session.PhotoRestored);
         }
 
         private void BeginEscort()
         {
+            audioController?.PlayConfirm();
             FlowState = ResolutionFlowState.EscortMinh;
             roomView.BeginResolutionEscort();
             ApplyMovementLock();
@@ -112,6 +123,8 @@ namespace MagesDementiaGame
             FlowState = ResolutionFlowState.Leaving;
             roomView.PlayerController.SetMovementEnabled(false);
             roomView.StopResolutionEscort();
+            audioController?.PlayEffect(audioController.Library?.DoorOpening);
+            audioController?.FadeOut(0.75f, true);
             StartCoroutine(FinishAfterFade());
         }
 
@@ -136,11 +149,13 @@ namespace MagesDementiaGame
             panelOpen = true;
             interactionPrompt = null;
             ApplyMovementLock();
+            audioController?.PlayDialogueBlip();
         }
 
         private void ClosePanel()
         {
             if (!panelOpen) return;
+            audioController?.PlayUiClick();
             panelOpen = false;
             var action = panelClosedAction;
             panelClosedAction = null;

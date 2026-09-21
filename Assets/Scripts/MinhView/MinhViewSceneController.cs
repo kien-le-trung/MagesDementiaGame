@@ -56,6 +56,7 @@ namespace MagesDementiaGame
         private readonly bool[] tableItemsPlaced = new bool[4];
         private readonly bool[] tableChecklistCompleted = new bool[4];
         private GameSession session;
+        private SceneAudioController audioController;
         private bool opening = true;
         private bool readyToLeave;
         private CommunicationStage communicationStage;
@@ -65,11 +66,13 @@ namespace MagesDementiaGame
         private void Awake()
         {
             session = GameSession.EnsureInstance();
+            audioController = GetComponent<SceneAudioController>();
             BindControls();
         }
 
         private void Start()
         {
+            audioController?.PlayRoomAmbience();
             ConfigureInitialState();
             ShowNarration("I need to finish this. Patients are waiting for me to care for them.");
         }
@@ -155,6 +158,7 @@ namespace MagesDementiaGame
         private void SelectRoomHotspot(Hotspot hotspot)
         {
             if (opening || readyToLeave || viewMode != ViewMode.RoomOverview || inspected[(int)hotspot]) return;
+            audioController?.PlayUiClick();
             if (hotspot == Hotspot.LeftWall) OpenDoorCloseup();
             else if (hotspot == Hotspot.Table) OpenTableCloseup();
             else InspectRoomHotspot(hotspot);
@@ -163,6 +167,7 @@ namespace MagesDementiaGame
         private void SelectDoorHotspot(DoorHotspot hotspot)
         {
             if (viewMode != ViewMode.DoorCloseup || doorInspected[(int)hotspot]) return;
+            audioController?.PlayUiClick();
             doorInspected[(int)hotspot] = true;
             HideCompletedButton(doorHotspotButtons, (int)hotspot);
             ShowNarration(hotspot switch
@@ -199,6 +204,7 @@ namespace MagesDementiaGame
         private void CloseDoorCloseup()
         {
             if (viewMode != ViewMode.DoorCloseup) return;
+            audioController?.PlayUiClick();
             if (DoorInspectedCount() == doorInspected.Length)
             {
                 inspected[(int)Hotspot.LeftWall] = true;
@@ -223,6 +229,8 @@ namespace MagesDementiaGame
         private void CloseTableCloseup(bool finishTask)
         {
             if (viewMode != ViewMode.TableCloseup) return;
+            if (finishTask && IsTableTaskComplete()) audioController?.PlayConfirm();
+            else audioController?.PlayUiClick();
             if (finishTask && IsTableTaskComplete())
             {
                 inspected[(int)Hotspot.Table] = true;
@@ -238,6 +246,7 @@ namespace MagesDementiaGame
         public void NotifyTableItemPlaced(int index)
         {
             if (index < 0 || index >= tableItemsPlaced.Length) return;
+            audioController?.PlayEffect(audioController.Library?.ItemPlace);
             tableItemsPlaced[index] = true;
             tableChecklist[index].interactable = true;
             UpdateTableFinishButton();
@@ -253,9 +262,21 @@ namespace MagesDementiaGame
             UpdateTableFinishButton();
         }
 
+        public void NotifyTableDragStarted()
+        {
+            audioController?.PlayEffect(audioController.Library?.ItemPickup);
+        }
+
+        public void NotifyTableInvalidDrop()
+        {
+            audioController?.PlayEffect(audioController.Library?.InvalidDrop);
+        }
+
         private void ChecklistChanged(int index, bool value)
         {
             tableChecklistCompleted[index] = value && tableItemsPlaced[index];
+            if (tableChecklistCompleted[index])
+                audioController?.PlayEffect(audioController.Library?.ChecklistTick);
             UpdateTableFinishButton();
         }
 
@@ -277,12 +298,14 @@ namespace MagesDementiaGame
             readyToLeave = true;
             televisionOff?.SetActive(false);
             televisionOn?.SetActive(true);
+            audioController?.PlayTelevisionPowerOn();
             ShowNarration("That's everything... Oh, yes. I have to be at the hospital. Why am I here?");
             UpdateObjective();
         }
 
         private void ContinueNarration()
         {
+            audioController?.PlayUiClick();
             if (readyToLeave) AdvanceEndingBeat();
             else
             {
@@ -300,6 +323,7 @@ namespace MagesDementiaGame
             {
                 case CommunicationStage.None:
                     blurredLan?.SetActive(true);
+                    audioController?.PlayEffect(audioController.Library?.DoorOpening);
                     communicationStage = CommunicationStage.WomanSpeaking;
                     ShowNarration("WOMAN: \"Minh... I'm— ... lunch is... You need to— ... with me.\"");
                     BeginFade();
@@ -319,7 +343,11 @@ namespace MagesDementiaGame
                     ShowNarration("WOMAN: \"You're worried about your patients. I hear you. We can talk about them over lunch.\"");
                     break;
                 case CommunicationStage.Acknowledgement:
-                    if (!session.IsTransitioning) session.BeginIntervention();
+                    if (!session.IsTransitioning)
+                    {
+                        audioController?.StopAll();
+                        session.BeginIntervention();
+                    }
                     break;
             }
             UpdateObjective();
@@ -339,6 +367,7 @@ namespace MagesDementiaGame
 
         private void UseSuggestedResponse()
         {
+            audioController?.PlayUiClick();
             speechInput.text = communicationStage == CommunicationStage.FirstTyping
                 ? "I need to get back to the hospital. My patients are waiting."
                 : "The patients need me. I have to go.";
@@ -349,6 +378,7 @@ namespace MagesDementiaGame
         {
             var thought = speechInput.text.Trim();
             if (!IsTyping() || thought.Length < 3) return;
+            audioController?.PlayConfirm();
             var spoken = TransformSpeech(thought);
             var firstAttempt = communicationStage == CommunicationStage.FirstTyping;
             session.SaveMinhSpokenLine(firstAttempt, spoken);
@@ -368,6 +398,7 @@ namespace MagesDementiaGame
             narrationText.text = text;
             continueButtonText.text = readyToLeave && !blurredLan.activeSelf ? "Listen  [Enter / Space]" : "Continue  [Enter / Space]";
             narrationPanel.SetActive(true);
+            audioController?.PlayDialogueBlip();
         }
 
         private void HideNarration() => narrationPanel?.SetActive(false);

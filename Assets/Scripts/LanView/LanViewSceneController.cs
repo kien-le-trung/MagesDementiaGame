@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -64,18 +65,22 @@ namespace MagesDementiaGame
 
         private bool advanceAfterPrompt;
         private GameSession session;
+        private SceneAudioController audioController;
         private string[] enteredReplayLines;
         private int enteredReplayIndex;
 
         private void Awake()
         {
             session = GameSession.EnsureInstance();
+            audioController = GetComponent<SceneAudioController>();
             BindButtons();
             continueButton?.onClick.AddListener(ClosePrompt);
         }
 
         private void Start()
         {
+            audioController?.PlayRoomAmbience();
+            audioController?.SetTelevisionAudio(TelevisionState.On, false);
             currentState = State.Entered;
             communicationStage = CommunicationStage.None;
             enteredReplayLines = new[]
@@ -124,6 +129,7 @@ namespace MagesDementiaGame
         private void Observe(ObservationHotspot hotspot)
         {
             if (currentState != State.Observing) return;
+            audioController?.PlayUiClick();
             observationsCompleted[(int)hotspot] = true;
             if ((int)hotspot < observationButtons.Length)
                 observationButtons[(int)hotspot].gameObject.SetActive(false);
@@ -141,6 +147,7 @@ namespace MagesDementiaGame
         private void Act(ActionHotspot hotspot)
         {
             if (currentState != State.Acting) return;
+            if (hotspot != ActionHotspot.Cabinet) audioController?.PlayUiClick();
             if (hotspot == ActionHotspot.Television)
             {
                 ConfigureTelevisionChoices();
@@ -158,7 +165,11 @@ namespace MagesDementiaGame
                 ActionHotspot.Wall => "The wall is empty. The family photograph should be hanging here. It must be somewhere in the room.",
                 _ => "The photograph was underneath the cabinet. You hang it back in its familiar place."
             };
-            if (hotspot == ActionHotspot.Cabinet) session.SetPhotoRestored(true);
+            if (hotspot == ActionHotspot.Cabinet)
+            {
+                session.SetPhotoRestored(true);
+                audioController?.PlayConfirm();
+            }
             ApplyState();
             ShowPrompt(text, AllComplete(actionsCompleted));
         }
@@ -188,6 +199,19 @@ namespace MagesDementiaGame
             if (actionButtons.Length > (int)ActionHotspot.Television)
                 actionButtons[(int)ActionHotspot.Television].gameObject.SetActive(false);
             televisionChoicePanel?.SetActive(false);
+            switch (choice)
+            {
+                case EnvironmentChoice.LowerTelevision:
+                    audioController?.SetTelevisionAudio(TelevisionState.Lowered, true);
+                    break;
+                case EnvironmentChoice.TurnOffTelevision:
+                    audioController?.SetTelevisionAudio(TelevisionState.Off, true);
+                    break;
+                default:
+                    audioController?.SetTelevisionAudio(TelevisionState.On, false);
+                    audioController?.PlayConfirm();
+                    break;
+            }
             ApplyState();
             var text = choice switch
             {
@@ -227,6 +251,7 @@ namespace MagesDementiaGame
                 _ => ApproachChoice.EnterViewAndIntroduce
             };
             session.SetApproachChoice(choice);
+            audioController?.PlayConfirm();
 
             // LanView currently ends after the approach decision. Use the neutral
             // reassurance response until the response interaction is authored.
@@ -234,6 +259,13 @@ namespace MagesDementiaGame
             communicationStage = CommunicationStage.Complete;
             televisionChoicePanel?.SetActive(false);
             ApplyState();
+            StartCoroutine(FinishApproachTransition());
+        }
+
+        private IEnumerator FinishApproachTransition()
+        {
+            yield return new WaitForSecondsRealtime(0.18f);
+            audioController?.StopAll();
             if (!session.BeginReplay())
                 Debug.LogError("LanView could not transition to ResolutionScene because a required decision is missing.", this);
         }
@@ -252,10 +284,12 @@ namespace MagesDementiaGame
             advanceAfterPrompt = advanceWhenClosed;
             if (promptText != null) promptText.text = text;
             promptPanel?.SetActive(true);
+            audioController?.PlayDialogueBlip();
         }
 
         private void ClosePrompt()
         {
+            audioController?.PlayUiClick();
             promptPanel?.SetActive(false);
             if (currentState == State.Entered)
             {
