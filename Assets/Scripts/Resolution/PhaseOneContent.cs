@@ -65,6 +65,12 @@ namespace MagesDementiaGame
             };
         }
 
+        public static string ApproachReflection(GameSession session)
+        {
+            if (!session.HasAiApproachEvaluation) return ApproachReflection(session.SelectedApproachChoice);
+            return $"Lan said: \"{session.LanApproachText}\"\n\n{session.ApproachJudgeFeedback}";
+        }
+
         public static string ResponseReflection(ResponseChoice choice)
         {
             return choice switch
@@ -91,7 +97,7 @@ namespace MagesDementiaGame
                     "\n\nFamiliar objects can support orientation and provide a reassuring connection to people and place.",
                 _ => (session.SelectedApproachChoice == ApproachChoice.NotChosen
                         ? "Moving into Minh's space before he can recognize Lan increases uncertainty and distress."
-                        : ApproachReflection(session.SelectedApproachChoice)) +
+                        : ApproachReflection(session)) +
                     "\n\nApproaching within view, allowing time, and identifying yourself can reduce surprise and support recognition."
             };
         }

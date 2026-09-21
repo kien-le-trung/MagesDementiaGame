@@ -33,6 +33,7 @@ namespace MagesDementiaGame
         {
             None,
             ChoosingApproach,
+            SubmittingApproach,
             LanSpeaking,
             MinhResponding,
             ChoosingResponse,
@@ -59,6 +60,15 @@ namespace MagesDementiaGame
         [SerializeField] private GameObject cabinetSearchArea;
         [SerializeField] private GameObject wallPhotograph;
 
+        [Header("Natural-language approach")]
+        [Tooltip("Local development: http://127.0.0.1:8787/evaluate-approach. Replace with the deployed workers.dev URL before building.")]
+        [SerializeField] private string approachJudgeUrl = "http://127.0.0.1:8787/evaluate-approach";
+        [SerializeField] private GameObject approachEntryPanel;
+        [SerializeField] private InputField approachInput;
+        [SerializeField] private Button submitApproachButton;
+        [SerializeField] private Button fallbackApproachButton;
+        [SerializeField] private Text approachStatusText;
+
         [Header("Hotspots (indexed by enums)")]
         [SerializeField] private Button[] observationButtons;
         [SerializeField] private Button[] actionButtons;
@@ -75,6 +85,8 @@ namespace MagesDementiaGame
             audioController = GetComponent<SceneAudioController>();
             BindButtons();
             continueButton?.onClick.AddListener(ClosePrompt);
+            submitApproachButton?.onClick.AddListener(SubmitNaturalLanguageApproach);
+            fallbackApproachButton?.onClick.AddListener(() => OpenFallbackChoices(null));
         }
 
         private void Start()
@@ -230,14 +242,75 @@ namespace MagesDementiaGame
             SetChoiceText(2, "Turn the television off");
         }
 
-        private void OpenApproachChoices()
+        private void OpenApproachEntry()
         {
             communicationStage = CommunicationStage.ChoosingApproach;
-            if (choiceTitleText != null) choiceTitleText.text = "How will you approach Minh?";
+            televisionChoicePanel?.SetActive(false);
+            approachEntryPanel?.SetActive(true);
+            if (approachInput != null)
+            {
+                approachInput.text = string.Empty;
+                approachInput.interactable = true;
+                approachInput.ActivateInputField();
+            }
+            if (submitApproachButton != null) submitApproachButton.interactable = true;
+            if (fallbackApproachButton != null) fallbackApproachButton.interactable = true;
+            if (approachStatusText != null)
+                approachStatusText.text = "What would you like to say to Minh?";
+        }
+
+        private void OpenFallbackChoices(string reason)
+        {
+            if (communicationStage != CommunicationStage.ChoosingApproach &&
+                communicationStage != CommunicationStage.SubmittingApproach) return;
+
+            communicationStage = CommunicationStage.ChoosingApproach;
+            approachEntryPanel?.SetActive(false);
+            if (choiceTitleText != null)
+                choiceTitleText.text = string.IsNullOrWhiteSpace(reason)
+                    ? "How will you approach Minh?"
+                    : "AI unavailable — choose the closest approach";
             SetChoiceText(0, "Call to him from across the room");
             SetChoiceText(1, "Walk over quickly so lunch is not delayed");
             SetChoiceText(2, "Enter his view, pause, and introduce yourself");
             televisionChoicePanel?.SetActive(true);
+            if (!string.IsNullOrWhiteSpace(reason))
+                Debug.LogWarning($"AI approach judging unavailable; using deterministic choices. {reason}", this);
+        }
+
+        private void SubmitNaturalLanguageApproach()
+        {
+            if (communicationStage != CommunicationStage.ChoosingApproach || approachInput == null) return;
+            var playerText = approachInput.text.Trim();
+            if (playerText.Length < 2)
+            {
+                if (approachStatusText != null) approachStatusText.text = "Please enter what Lan wants to say.";
+                approachInput.ActivateInputField();
+                return;
+            }
+            if (playerText.Length > 600)
+            {
+                if (approachStatusText != null) approachStatusText.text = "Please keep the response under 600 characters.";
+                return;
+            }
+
+            communicationStage = CommunicationStage.SubmittingApproach;
+            approachInput.interactable = false;
+            if (submitApproachButton != null) submitApproachButton.interactable = false;
+            if (fallbackApproachButton != null) fallbackApproachButton.interactable = false;
+            if (approachStatusText != null) approachStatusText.text = "Considering your approach...";
+            StartCoroutine(ApproachJudgeClient.Evaluate(
+                approachJudgeUrl,
+                playerText,
+                result => CompleteAiApproach(playerText, result),
+                error => OpenFallbackChoices(error)));
+        }
+
+        private void CompleteAiApproach(string playerText, ApproachJudgeResult result)
+        {
+            if (communicationStage != CommunicationStage.SubmittingApproach) return;
+            session.SaveApproachEvaluation(playerText, result);
+            CompleteApproach(ApproachChoice.NaturalLanguage, result.feedback);
         }
 
         private void SelectApproachOption(int index)
@@ -250,27 +323,21 @@ namespace MagesDementiaGame
                 1 => ApproachChoice.ApproachQuickly,
                 _ => ApproachChoice.EnterViewAndIntroduce
             };
-            session.SetApproachChoice(choice);
-            audioController?.PlayConfirm();
-
-            // LanView currently ends after the approach decision. Use the neutral
-            // reassurance response until the response interaction is authored.
-            session.SetResponseChoice(ResponseChoice.GenericReassurance);
-            communicationStage = CommunicationStage.Complete;
-            televisionChoicePanel?.SetActive(false);
-            if (promptText != null) promptText.text = "Lan steps into Minh's view.";
-            promptPanel?.SetActive(true);
-            if (continueButton != null) continueButton.interactable = false;
-            audioController?.PlayDialogueBlip();
-            ApplyState();
-            StartCoroutine(FinishApproachTransition());
+            session.ClearApproachEvaluation();
+            CompleteApproach(choice, "This preset approach was evaluated using the authored game rules.");
         }
 
-        private IEnumerator FinishApproachTransition()
+        private void CompleteApproach(ApproachChoice choice, string feedback)
         {
-            yield return new WaitForSecondsRealtime(0.8f);
-            if (!session.BeginReplay())
-                Debug.LogError("LanView could not transition to ResolutionScene because a required decision is missing.", this);
+            session.SetApproachChoice(choice);
+            session.SetResponseChoice(ResponseChoice.GenericReassurance);
+            audioController?.PlayConfirm();
+            communicationStage = CommunicationStage.Complete;
+            approachEntryPanel?.SetActive(false);
+            televisionChoicePanel?.SetActive(false);
+            if (continueButton != null) continueButton.interactable = true;
+            ApplyState();
+            ShowPrompt(feedback + "\n\nContinue to see how the interaction resolves.", true);
         }
 
         private void SetChoiceText(int index, string text)
@@ -317,7 +384,7 @@ namespace MagesDementiaGame
             {
                 currentState = State.Conversing;
                 ApplyState();
-                OpenApproachChoices();
+                OpenApproachEntry();
                 return;
             }
             else if (currentState == State.Conversing)
@@ -339,6 +406,8 @@ namespace MagesDementiaGame
             wallPhotograph?.SetActive(actionsCompleted[(int)ActionHotspot.Cabinet]);
             if (currentState != State.Acting && currentState != State.Conversing)
                 televisionChoicePanel?.SetActive(false);
+            if (currentState != State.Conversing)
+                approachEntryPanel?.SetActive(false);
             if (objectiveText == null) return;
             objectiveText.text = currentState switch
             {
@@ -348,6 +417,7 @@ namespace MagesDementiaGame
                     "Find the missing photograph.",
                 State.Acting => $"Prepare the environment ({CompletedCount(actionsCompleted)}/{actionsCompleted.Length})",
                 State.Conversing when communicationStage == CommunicationStage.Complete => "Continue to the resolution",
+                State.Conversing when communicationStage == CommunicationStage.SubmittingApproach => "Listen and consider your approach",
                 _ => "Choose how to approach Minh"
             };
         }

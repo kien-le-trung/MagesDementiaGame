@@ -106,6 +106,28 @@ namespace MagesDementiaGame
             return effects;
         }
 
+        public static ReplayEffects ApplyApproachEvaluation(
+            ReplayEffects effects,
+            int recognition,
+            int trust,
+            int distress,
+            int clarity)
+        {
+            effects.Recognition += Clamp(recognition, 0, 2);
+            effects.Trust += Clamp(trust, 0, 2);
+            effects.Distress += Clamp(distress, 0, 2) switch
+            {
+                0 => -1,
+                1 => 0,
+                _ => 2
+            };
+            effects.Agency += Clamp(clarity, 0, 2) - 1;
+            if (clarity == 0) effects.SpeechClarity = LowerClarity(effects.SpeechClarity);
+            effects.Distress = Clamp(effects.Distress, 0, 8);
+            effects.Agency = Clamp(effects.Agency, -1, 4);
+            return effects;
+        }
+
         private static SpeechClarity LowerClarity(SpeechClarity clarity)
         {
             return clarity == SpeechClarity.Clear ? SpeechClarity.Partial : SpeechClarity.Fragmented;

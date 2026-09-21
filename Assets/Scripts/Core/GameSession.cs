@@ -25,7 +25,8 @@ namespace MagesDementiaGame
         NotChosen,
         CallFromDistance,
         ApproachQuickly,
-        EnterViewAndIntroduce
+        EnterViewAndIntroduce,
+        NaturalLanguage
     }
 
     public enum ResponseChoice
@@ -52,6 +53,13 @@ namespace MagesDementiaGame
         public bool PhotoRestored { get; private set; }
         public string MinhFirstSpokenLine { get; private set; }
         public string MinhSecondSpokenLine { get; private set; }
+        public string LanApproachText { get; private set; }
+        public string ApproachJudgeFeedback { get; private set; }
+        public int ApproachRecognitionScore { get; private set; }
+        public int ApproachTrustScore { get; private set; }
+        public int ApproachDistressScore { get; private set; }
+        public int ApproachClarityScore { get; private set; }
+        public bool HasAiApproachEvaluation { get; private set; }
         public ReplayEffects ReplayEffects { get; private set; }
         public bool IsTransitioning { get; private set; }
         private SceneTransitionController transitionController;
@@ -185,6 +193,30 @@ namespace MagesDementiaGame
             else MinhSecondSpokenLine = spokenLine;
         }
 
+        public void SaveApproachEvaluation(string playerText, ApproachJudgeResult result)
+        {
+            LanApproachText = playerText;
+            ApproachJudgeFeedback = result.feedback;
+            ApproachRecognitionScore = result.recognition;
+            ApproachTrustScore = result.trust;
+            ApproachDistressScore = result.distress;
+            ApproachClarityScore = result.clarity;
+            HasAiApproachEvaluation = true;
+            NotifyChanged();
+        }
+
+        public void ClearApproachEvaluation()
+        {
+            LanApproachText = null;
+            ApproachJudgeFeedback = null;
+            ApproachRecognitionScore = 0;
+            ApproachTrustScore = 0;
+            ApproachDistressScore = 0;
+            ApproachClarityScore = 0;
+            HasAiApproachEvaluation = false;
+            NotifyChanged();
+        }
+
         public bool BeginReplay()
         {
             if (!HasAllChoices || IsTransitioning)
@@ -198,6 +230,15 @@ namespace MagesDementiaGame
                 SelectedApproachChoice,
                 SelectedResponseChoice,
                 PhotoRestored);
+            if (HasAiApproachEvaluation)
+            {
+                ReplayEffects = OutcomeCalculator.ApplyApproachEvaluation(
+                    ReplayEffects,
+                    ApproachRecognitionScore,
+                    ApproachTrustScore,
+                    ApproachDistressScore,
+                    ApproachClarityScore);
+            }
             Phase = NarrativePhase.Replay;
             NotifyChanged();
 
@@ -249,6 +290,13 @@ namespace MagesDementiaGame
             PhotoRestored = false;
             MinhFirstSpokenLine = null;
             MinhSecondSpokenLine = null;
+            LanApproachText = null;
+            ApproachJudgeFeedback = null;
+            ApproachRecognitionScore = 0;
+            ApproachTrustScore = 0;
+            ApproachDistressScore = 0;
+            ApproachClarityScore = 0;
+            HasAiApproachEvaluation = false;
             ReplayEffects = OutcomeCalculator.Baseline;
         }
 

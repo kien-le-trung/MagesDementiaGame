@@ -1,7 +1,8 @@
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const OPENROUTER_FREE_MODEL = "openrouter/free";
-const MAX_INPUT_LENGTH = 600;
+const MAX_INPUT_LENGTH = 6000;
 const REQUEST_TIMEOUT_MS = 20_000;
+const MAX_INVALID_RESPONSE_RETRIES = 2;
 
 interface JudgeRequest {
   text?: unknown;
@@ -39,15 +40,44 @@ Score each field with an integer from 0 to 2:
 - clarity: short, concrete, understandable wording with one idea at a time.
 
 Classify outcome as harmful, mixed, or supportive. Give one concise sentence of constructive feedback.
-Return JSON only with exactly these keys: recognition, trust, distress, clarity, outcome, feedback.`;
+Return JSON only with exactly these keys: recognition, trust, distress, clarity, outcome, feedback.
+Do not use Markdown, code fences, commentary, or keys outside the required JSON object.
+
+Examples:
+
+Player text: "Dad, hurry up. Lunch is ready and we need to leave now."
+Response: {"recognition":0,"trust":0,"distress":2,"clarity":1,"outcome":"harmful","feedback":"The urgent command gives Minh little help recognizing Lan and may increase his distress."}
+
+Player text: "Dad, lunch is ready. Will you come with me?"
+Response: {"recognition":0,"trust":1,"distress":1,"clarity":2,"outcome":"mixed","feedback":"The request is concise, but Lan should identify herself and provide reassuring context before asking Minh to move."}
+
+Player text: "Hi Grandpa, it's Lan. You're safe at home with me. Would you like to have lunch together?"
+Response: {"recognition":2,"trust":2,"distress":0,"clarity":2,"outcome":"supportive","feedback":"Lan identifies herself, offers calm reassurance, and gives Minh one clear invitation."}`;
+
+const JUDGE_RESPONSE_FORMAT = {
+  type: "json_schema",
+  json_schema: {
+    name: "dementia_care_approach_evaluation",
+    strict: true,
+    schema: {
+      type: "object",
+      properties: {
+        recognition: { type: "integer", minimum: 0, maximum: 2 },
+        trust: { type: "integer", minimum: 0, maximum: 2 },
+        distress: { type: "integer", minimum: 0, maximum: 2 },
+        clarity: { type: "integer", minimum: 0, maximum: 2 },
+        outcome: { type: "string", enum: ["harmful", "mixed", "supportive"] },
+        feedback: { type: "string", minLength: 1, maxLength: 300 }
+      },
+      required: ["recognition", "trust", "distress", "clarity", "outcome", "feedback"],
+      additionalProperties: false
+    }
+  }
+} as const;
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const corsHeaders = createCorsHeaders(request, env);
-
-    if (request.method === "OPTIONS") {
-      return new Response(null, { status: 204, headers: corsHeaders });
-    }
 
     const url = new URL(request.url);
     if (request.method === "GET" && url.pathname === "/health") {
@@ -87,47 +117,49 @@ export default {
     }
 
     try {
-      const upstream = await fetch(OPENROUTER_URL, {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${env.OPENROUTER_API_KEY}`,
-          "Content-Type": "application/json",
-          "X-Title": "MAGES Dementia Care Game"
-        },
-        body: JSON.stringify({
-          model: OPENROUTER_FREE_MODEL,
-          temperature: 0,
-          max_completion_tokens: 220,
-          response_format: { type: "json_object" },
-          messages: [
-            { role: "system", content: SYSTEM_PROMPT },
-            { role: "user", content: `Evaluate this approach:\n<player_text>${escapeMarkup(playerText)}</player_text>` }
-          ]
-        }),
-        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
-      });
+      for (let attempt = 0; attempt <= MAX_INVALID_RESPONSE_RETRIES; attempt++) {
+        const upstream = await fetch(OPENROUTER_URL, {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${env.OPENROUTER_API_KEY}`,
+            "Content-Type": "application/json",
+            "X-Title": "MAGES Dementia Care Game"
+          },
+          body: JSON.stringify({
+            model: OPENROUTER_FREE_MODEL,
+            provider: { require_parameters: true },
+            temperature: 0,
+            max_completion_tokens: 1000,
+            response_format: JUDGE_RESPONSE_FORMAT,
+            messages: [
+              { role: "system", content: SYSTEM_PROMPT },
+              {
+                role: "user",
+                content: `${attempt > 0 ? "The previous response was invalid. Return only the required JSON object.\n" : ""}` +
+                  `Evaluate this approach:\n<player_text>${escapeMarkup(playerText)}</player_text>`
+              }
+            ]
+          }),
+          signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
+        });
 
-      const openRouter = await upstream.json<OpenRouterResponse>().catch(() => ({} as OpenRouterResponse));
-      if (!upstream.ok) {
-        console.error(`OpenRouter returned ${upstream.status}: ${openRouter.error?.message ?? "Unknown error"}`);
-        const status = upstream.status === 429 ? 429 : 502;
-        const message = upstream.status === 429
-          ? "The free AI judge is temporarily rate-limited. Please try again shortly."
-          : "The AI judge is temporarily unavailable.";
-        return json({ error: message }, status, corsHeaders);
+        const openRouter = await upstream.json<OpenRouterResponse>().catch(() => ({} as OpenRouterResponse));
+        if (!upstream.ok) {
+          console.error(`OpenRouter returned ${upstream.status}: ${openRouter.error?.message ?? "Unknown error"}`);
+          const status = upstream.status === 429 ? 429 : 502;
+          const message = upstream.status === 429
+            ? "The free AI judge is temporarily rate-limited. Please try again shortly."
+            : "The AI judge is temporarily unavailable.";
+          return json({ error: message }, status, corsHeaders);
+        }
+
+        const result = tryParseJudgeResult(openRouter.choices?.[0]?.message?.content);
+        if (result) return json(result, 200, corsHeaders);
+
+        console.warn(`OpenRouter returned an invalid judging result (attempt ${attempt + 1} of ${MAX_INVALID_RESPONSE_RETRIES + 1}).`);
       }
 
-      const content = openRouter.choices?.[0]?.message?.content;
-      if (!content) {
-        throw new Error("OpenRouter returned no message content.");
-      }
-
-      const result = validateJudgeResult(parseModelJson(content));
-      if (!result) {
-        throw new Error("OpenRouter returned an invalid judging result.");
-      }
-
-      return json(result, 200, corsHeaders);
+      throw new Error(`OpenRouter returned invalid judging results after ${MAX_INVALID_RESPONSE_RETRIES + 1} attempts.`);
     } catch (error) {
       const timedOut = error instanceof Error && error.name === "TimeoutError";
       console.error(error);
@@ -171,6 +203,15 @@ function parseModelJson(content: string): unknown {
     .replace(/\s*```$/, "")
     .trim();
   return JSON.parse(withoutFence);
+}
+
+function tryParseJudgeResult(content: string | null | undefined): JudgeResult | null {
+  if (!content) return null;
+  try {
+    return validateJudgeResult(parseModelJson(content));
+  } catch {
+    return null;
+  }
 }
 
 function validateJudgeResult(value: unknown): JudgeResult | null {
