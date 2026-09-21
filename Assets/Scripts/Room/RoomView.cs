@@ -121,6 +121,9 @@ namespace MagesDementiaGame
                 var combinedRenderer = sofaWithMinh.GetComponent<SpriteRenderer>();
                 var hasCombinedArt = combinedRenderer != null && combinedRenderer.sprite != null;
                 sofaWithMinh.SetActive(resolution && hasCombinedArt);
+                sofa.SetActive(true);
+                var sofaRenderer = sofa.GetComponent<SpriteRenderer>();
+                if (sofaRenderer != null) sofaRenderer.enabled = !resolution || !hasCombinedArt;
                 if (resolution && hasCombinedArt) minh.SetActive(false);
             }
             return true;
@@ -147,6 +150,9 @@ namespace MagesDementiaGame
         public void BeginResolutionEscort()
         {
             sofaWithMinh?.SetActive(false);
+            sofa.SetActive(true);
+            var sofaRenderer = sofa.GetComponent<SpriteRenderer>();
+            if (sofaRenderer != null) sofaRenderer.enabled = true;
             minh.SetActive(true);
             minh.transform.position = resolutionMinhSeat.position;
             var body = minh.GetComponent<Rigidbody2D>();
