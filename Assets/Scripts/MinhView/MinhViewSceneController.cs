@@ -79,6 +79,7 @@ namespace MagesDementiaGame
 
         private void Update()
         {
+            if (session != null && session.IsTransitioning) return;
             if (fadeOverlay != null && fadeOverlay.alpha > 0f)
                 fadeOverlay.alpha = Mathf.MoveTowards(fadeOverlay.alpha, 0f, Time.unscaledDeltaTime * 4f);
 
@@ -345,7 +346,6 @@ namespace MagesDementiaGame
                 case CommunicationStage.Acknowledgement:
                     if (!session.IsTransitioning)
                     {
-                        audioController?.StopAll();
                         session.BeginIntervention();
                     }
                     break;

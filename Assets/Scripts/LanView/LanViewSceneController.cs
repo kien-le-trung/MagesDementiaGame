@@ -80,7 +80,7 @@ namespace MagesDementiaGame
         private void Start()
         {
             audioController?.PlayRoomAmbience();
-            audioController?.SetTelevisionAudio(TelevisionState.On, false);
+            audioController?.PlayEffect(audioController.Library?.DoorOpening);
             currentState = State.Entered;
             communicationStage = CommunicationStage.None;
             enteredReplayLines = new[]
@@ -202,13 +202,13 @@ namespace MagesDementiaGame
             switch (choice)
             {
                 case EnvironmentChoice.LowerTelevision:
-                    audioController?.SetTelevisionAudio(TelevisionState.Lowered, true);
+                    audioController?.PlayEffect(audioController.Library?.TelevisionVolumeDown);
                     break;
                 case EnvironmentChoice.TurnOffTelevision:
-                    audioController?.SetTelevisionAudio(TelevisionState.Off, true);
+                    audioController?.PlayEffect(audioController.Library?.TelevisionOff);
+                    audioController?.StopTelevision();
                     break;
                 default:
-                    audioController?.SetTelevisionAudio(TelevisionState.On, false);
                     audioController?.PlayConfirm();
                     break;
             }
@@ -258,14 +258,17 @@ namespace MagesDementiaGame
             session.SetResponseChoice(ResponseChoice.GenericReassurance);
             communicationStage = CommunicationStage.Complete;
             televisionChoicePanel?.SetActive(false);
+            if (promptText != null) promptText.text = "Lan steps into Minh's view.";
+            promptPanel?.SetActive(true);
+            if (continueButton != null) continueButton.interactable = false;
+            audioController?.PlayDialogueBlip();
             ApplyState();
             StartCoroutine(FinishApproachTransition());
         }
 
         private IEnumerator FinishApproachTransition()
         {
-            yield return new WaitForSecondsRealtime(0.18f);
-            audioController?.StopAll();
+            yield return new WaitForSecondsRealtime(0.8f);
             if (!session.BeginReplay())
                 Debug.LogError("LanView could not transition to ResolutionScene because a required decision is missing.", this);
         }

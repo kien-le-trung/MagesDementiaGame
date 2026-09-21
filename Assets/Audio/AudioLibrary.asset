@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38479317aca24b40a3bc7fddc99dd32, type: 3}
+  m_Name: AudioLibrary
+  m_EditorClassIdentifier: Assembly-CSharp::MagesDementiaGame.AudioLibrary
+  RoomAmbience: {fileID: 8300000, guid: 732eacaa9b571f84e955fdfee6f7861c, type: 3}
+  ReflectionTheme: {fileID: 8300000, guid: e58dd9fa9c13ddd40af45fca5bf7fad1, type: 3}
+  UiClick: {fileID: 8300000, guid: 931c3c4a4bdea8b46a8cfe0fde88a63d, type: 3}
+  UiConfirm: {fileID: 8300000, guid: bbc32aa3a771cd247a1817ae68c50790, type: 3}
+  DialogueBlip: {fileID: 8300000, guid: 17898d43b5f05e449b7b3fbcea6944de, type: 3}
+  ItemPickup: {fileID: 8300000, guid: f0a14c7f8b8093542bcf57a2faa2d2ba, type: 3}
+  ItemPlace: {fileID: 8300000, guid: 63135afe50d12eb4cb8466dbddfae0a6, type: 3}
+  InvalidDrop: {fileID: 8300000, guid: 725cbf7c09742714e8341a2c7738d618, type: 3}
+  ChecklistTick: {fileID: 8300000, guid: 6e8dbaae50dced14ea4f521717193b20, type: 3}
+  TelevisionOn: {fileID: 8300000, guid: a4399217fb1fd244fb04d048c03e4a79, type: 3}
+  TelevisionOff: {fileID: 8300000, guid: 3d4f11e0bda41f04bb2d5cb0a415ed32, type: 3}
+  TelevisionVolumeDown: {fileID: 8300000, guid: 05db801831828564f8e6b6d92df9e14c, type: 3}
+  TelevisionStaticLoop: {fileID: 8300000, guid: 8870518c3c443d541997b663cb577e59, type: 3}
+  DoorOpening: {fileID: 8300000, guid: 70b250f7d55d1bb49b70eb1f6d2acac5, type: 3}

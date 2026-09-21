@@ -131,9 +131,9 @@ TextureImporter:
       name: lan_right_frame_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 8
         y: 0
-        width: 384
+        width: 368
         height: 1024
       alignment: 9
       pivot: {x: 0.5, y: 0}
@@ -153,9 +153,9 @@ TextureImporter:
       name: lan_right_frame_1
       rect:
         serializedVersion: 2
-        x: 384
+        x: 392
         y: 0
-        width: 384
+        width: 368
         height: 1024
       alignment: 9
       pivot: {x: 0.5, y: 0}
@@ -175,9 +175,9 @@ TextureImporter:
       name: lan_right_frame_2
       rect:
         serializedVersion: 2
-        x: 768
+        x: 776
         y: 0
-        width: 384
+        width: 368
         height: 1024
       alignment: 9
       pivot: {x: 0.5, y: 0}
@@ -197,9 +197,9 @@ TextureImporter:
       name: lan_right_frame_3
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 1160
         y: 0
-        width: 384
+        width: 368
         height: 1024
       alignment: 9
       pivot: {x: 0.5, y: 0}

@@ -54,6 +54,7 @@ namespace MagesDementiaGame
         public string MinhSecondSpokenLine { get; private set; }
         public ReplayEffects ReplayEffects { get; private set; }
         public bool IsTransitioning { get; private set; }
+        private SceneTransitionController transitionController;
 
         public bool HasAllChoices =>
             SelectedEnvironmentChoice != EnvironmentChoice.NotChosen &&
@@ -120,6 +121,7 @@ namespace MagesDementiaGame
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            transitionController = gameObject.AddComponent<SceneTransitionController>();
             ResetSession();
             SceneManager.sceneLoaded += HandleSceneLoaded;
         }
@@ -145,7 +147,7 @@ namespace MagesDementiaGame
 
             if (SceneManager.GetActiveScene().name != LanViewSceneName)
             {
-                SceneManager.LoadScene(LanViewSceneName);
+                transitionController.TransitionToScene(LanViewSceneName, CompleteTransition);
             }
             else
             {
@@ -201,7 +203,7 @@ namespace MagesDementiaGame
 
             if (SceneManager.GetActiveScene().name != ResolutionSceneName)
             {
-                SceneManager.LoadScene(ResolutionSceneName);
+                transitionController.TransitionToScene(ResolutionSceneName, CompleteTransition);
             }
             else
             {
@@ -217,8 +219,12 @@ namespace MagesDementiaGame
                 return;
             }
 
-            Phase = NarrativePhase.Reflection;
-            NotifyChanged();
+            IsTransitioning = true;
+            transitionController.TransitionWithinScene(() =>
+            {
+                Phase = NarrativePhase.Reflection;
+                NotifyChanged();
+            }, CompleteTransition, true);
         }
 
         public void Restart()
@@ -253,7 +259,8 @@ namespace MagesDementiaGame
 
         private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            IsTransitioning = false;
+            if (transitionController == null || !transitionController.IsRunning)
+                IsTransitioning = false;
             if (scene.name == MinhViewSceneName)
             {
                 return;
@@ -275,6 +282,11 @@ namespace MagesDementiaGame
                 return;
             }
 
+        }
+
+        private void CompleteTransition()
+        {
+            IsTransitioning = false;
         }
     }
 }

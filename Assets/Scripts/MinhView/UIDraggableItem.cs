@@ -13,6 +13,10 @@ namespace MagesDementiaGame
         private Canvas rootCanvas;
         private Transform inventoryParent;
         private Vector2 inventoryPosition;
+        private Vector2 inventoryAnchorMin;
+        private Vector2 inventoryAnchorMax;
+        private Vector2 inventorySizeDelta;
+        private Vector2 renderedSize;
         private bool acceptedThisDrag;
         private MinhViewSceneController controller;
 
@@ -28,6 +32,10 @@ namespace MagesDementiaGame
             canvasGroup = GetComponent<CanvasGroup>();
             inventoryParent = transform.parent;
             inventoryPosition = rectTransform.anchoredPosition;
+            inventoryAnchorMin = rectTransform.anchorMin;
+            inventoryAnchorMax = rectTransform.anchorMax;
+            inventorySizeDelta = rectTransform.sizeDelta;
+            renderedSize = rectTransform.rect.size;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -35,7 +43,12 @@ namespace MagesDementiaGame
             controller?.NotifyTableDragStarted();
             acceptedThisDrag = false;
             canvasGroup.blocksRaycasts = false;
+            var worldPosition = rectTransform.position;
             transform.SetParent(rootCanvas.transform, true);
+            rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+            rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+            rectTransform.sizeDelta = renderedSize;
+            rectTransform.position = worldPosition;
             transform.SetAsLastSibling();
         }
 
@@ -51,6 +64,9 @@ namespace MagesDementiaGame
             controller?.NotifyTableInvalidDrop();
             IsPlaced = false;
             transform.SetParent(inventoryParent, false);
+            rectTransform.anchorMin = inventoryAnchorMin;
+            rectTransform.anchorMax = inventoryAnchorMax;
+            rectTransform.sizeDelta = inventorySizeDelta;
             rectTransform.anchoredPosition = inventoryPosition;
             controller?.NotifyTableItemRemoved(itemIndex);
         }
@@ -62,6 +78,7 @@ namespace MagesDementiaGame
             transform.SetParent(target, false);
             rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
             rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+            rectTransform.sizeDelta = renderedSize;
             rectTransform.anchoredPosition = Vector2.zero;
             controller?.NotifyTableItemPlaced(itemIndex);
         }

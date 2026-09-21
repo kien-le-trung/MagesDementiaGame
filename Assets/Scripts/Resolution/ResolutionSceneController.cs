@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,7 +20,6 @@ namespace MagesDementiaGame
         private Action panelClosedAction;
         private bool panelOpen;
         private bool initialized;
-        private float fadeAlpha;
         private GUIStyle titleStyle, bodyStyle, buttonStyle, promptStyle;
 
         public ResolutionFlowState FlowState { get; private set; }
@@ -124,20 +122,6 @@ namespace MagesDementiaGame
             roomView.PlayerController.SetMovementEnabled(false);
             roomView.StopResolutionEscort();
             audioController?.PlayEffect(audioController.Library?.DoorOpening);
-            audioController?.FadeOut(0.75f, true);
-            StartCoroutine(FinishAfterFade());
-        }
-
-        private IEnumerator FinishAfterFade()
-        {
-            const float duration = 0.75f;
-            var elapsed = 0f;
-            while (elapsed < duration)
-            {
-                elapsed += Time.unscaledDeltaTime;
-                fadeAlpha = Mathf.Clamp01(elapsed / duration);
-                yield return null;
-            }
             FlowState = ResolutionFlowState.Complete;
             session.BeginReflection();
         }
@@ -184,13 +168,6 @@ namespace MagesDementiaGame
                 GUI.Box(rect, GUIContent.none);
                 GUI.Label(new Rect(rect.x + 22f, rect.y + 18f, rect.width - 44f, 92f), panelText, bodyStyle);
                 if (GUI.Button(new Rect(rect.x + rect.width - 210f, rect.y + 112f, 188f, 34f), "Continue  [Enter]", buttonStyle)) ClosePanel();
-            }
-            if (fadeAlpha > 0f)
-            {
-                var old = GUI.color;
-                GUI.color = new Color(0f, 0f, 0f, fadeAlpha);
-                GUI.DrawTexture(new Rect(0f, 0f, width, height), Texture2D.whiteTexture);
-                GUI.color = old;
             }
         }
 

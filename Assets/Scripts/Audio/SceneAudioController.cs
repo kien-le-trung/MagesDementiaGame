@@ -101,12 +101,15 @@ namespace MagesDementiaGame
         {
             var backgroundStart = backgroundSource != null ? backgroundSource.volume : 0f;
             var televisionStart = televisionSource != null ? televisionSource.volume : 0f;
+            var backgroundTarget = preserveMusic ? 0.12f : 0f;
             var elapsed = 0f;
             while (elapsed < duration)
             {
                 elapsed += Time.unscaledDeltaTime;
-                var amount = 1f - Mathf.Clamp01(elapsed / duration);
-                if (backgroundSource != null) backgroundSource.volume = backgroundStart * amount;
+                var progress = Mathf.Clamp01(elapsed / duration);
+                var amount = 1f - progress;
+                if (backgroundSource != null)
+                    backgroundSource.volume = Mathf.Lerp(backgroundStart, backgroundTarget, progress);
                 if (televisionSource != null) televisionSource.volume = televisionStart * amount;
                 yield return null;
             }
@@ -116,7 +119,7 @@ namespace MagesDementiaGame
             {
                 if (preserveMusic)
                 {
-                    backgroundSource.volume = 0.12f;
+                    backgroundSource.volume = backgroundTarget;
                     if (!backgroundSource.isPlaying) backgroundSource.Play();
                 }
                 else backgroundSource.Stop();
