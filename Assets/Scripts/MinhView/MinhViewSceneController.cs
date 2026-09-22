@@ -326,7 +326,7 @@ namespace MagesDementiaGame
                     blurredLan?.SetActive(true);
                     audioController?.PlayEffect(audioController.Library?.DoorOpening);
                     communicationStage = CommunicationStage.WomanSpeaking;
-                    ShowNarration("WOMAN: \"Minh... I'm— ... lunch is... You need to— ... with me.\"");
+                    ShowNarration("\"Minh... I'm— ... lunch is... You need to— ... with me.\"");
                     BeginFade();
                     break;
                 case CommunicationStage.WomanSpeaking:
@@ -334,14 +334,14 @@ namespace MagesDementiaGame
                     break;
                 case CommunicationStage.FirstResult:
                     communicationStage = CommunicationStage.Clarification;
-                    ShowNarration("WOMAN: \"Dad, I'm sorry—I didn't understand. Take your time. Can you try again?\"");
+                    ShowNarration("\"Dad, I'm sorry—I didn't understand. Take your time. Can you try again?\"");
                     break;
                 case CommunicationStage.Clarification:
                     BeginTyping(true);
                     break;
                 case CommunicationStage.SecondResult:
                     communicationStage = CommunicationStage.Acknowledgement;
-                    ShowNarration("WOMAN: \"You're worried about your patients. I hear you. We can talk about them over lunch.\"");
+                    ShowNarration("\"You're worried about your patients. I hear you. We can talk about them over lunch.\"");
                     break;
                 case CommunicationStage.Acknowledgement:
                     if (!session.IsTransitioning)
@@ -384,7 +384,7 @@ namespace MagesDementiaGame
             session.SaveMinhSpokenLine(firstAttempt, spoken);
             communicationStage = firstAttempt ? CommunicationStage.FirstResult : CommunicationStage.SecondResult;
             speechEntryPanel.SetActive(false);
-            ShowNarration($"MINH: \"{spoken}\"");
+            ShowNarration($"\"{spoken}\"");
             UpdateObjective();
         }
 

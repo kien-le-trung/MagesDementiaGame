@@ -21,7 +21,9 @@ namespace MagesDementiaGame
         private string TargetName => target switch
         {
             ResolutionInspectionTarget.Television => "the television",
-            ResolutionInspectionTarget.Photograph => "the photograph",
+            ResolutionInspectionTarget.Photograph => controller != null && !controller.IsPhotographVisible
+                ? "the empty wall"
+                : "the photograph",
             _ => "Minh"
         };
 

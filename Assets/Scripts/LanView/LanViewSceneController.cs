@@ -53,6 +53,7 @@ namespace MagesDementiaGame
         [SerializeField] private Text promptText;
         [SerializeField] private Text objectiveText;
         [SerializeField] private Button continueButton;
+        [SerializeField] private Button finishActionsButton;
         [SerializeField] private GameObject televisionChoicePanel;
         [SerializeField] private Button[] televisionChoiceButtons;
         [SerializeField] private Text choiceTitleText;
@@ -85,23 +86,29 @@ namespace MagesDementiaGame
             audioController = GetComponent<SceneAudioController>();
             BindButtons();
             continueButton?.onClick.AddListener(ClosePrompt);
+            finishActionsButton?.onClick.AddListener(FinishEnvironmentActions);
             submitApproachButton?.onClick.AddListener(SubmitNaturalLanguageApproach);
             fallbackApproachButton?.onClick.AddListener(() => OpenFallbackChoices(null));
+            if (promptText != null) promptText.verticalOverflow = VerticalWrapMode.Overflow;
         }
 
         private void Start()
         {
+            if (finishActionsButton == null)
+                Debug.LogError(
+                    "LanView is missing its FinishEnvironmentButton. Use MAGES > Repair LanView Optional Photo UI.",
+                    this);
             audioController?.PlayRoomAmbience();
             audioController?.PlayEffect(audioController.Library?.DoorOpening);
             currentState = State.Entered;
             communicationStage = CommunicationStage.None;
             enteredReplayLines = new[]
             {
-                "WOMAN: \"Dad, lunch is ready. You need to come with me.\"",
-                $"MINH: \"{FallbackSpeech(session.MinhFirstSpokenLine, "I... hospital... patients... waiting.")}\"",
-                "WOMAN: \"Dad, I'm sorry. I didn't understand. Take your time. Can you try again?\"",
-                $"MINH: \"{FallbackSpeech(session.MinhSecondSpokenLine, "The patients... need me. I have to go.")}\"",
-                "WOMAN: \"You're worried about your patients. I hear you. We can talk about them over lunch.\""
+                "\"Dad, lunch is ready. You need to come with me.\"",
+                $"\"{FallbackSpeech(session.MinhFirstSpokenLine, "I... hospital... patients... waiting.")}\"",
+                "\"Dad, I'm sorry. I didn't understand. Take your time. Can you try again?\"",
+                $"\"{FallbackSpeech(session.MinhSecondSpokenLine, "The patients... need me. I have to go.")}\"",
+                "\"You're worried about your patients. I hear you. We can talk about them over lunch.\""
             };
             enteredReplayIndex = 0;
             ApplyState();
@@ -183,7 +190,7 @@ namespace MagesDementiaGame
                 audioController?.PlayConfirm();
             }
             ApplyState();
-            ShowPrompt(text, AllComplete(actionsCompleted));
+            ShowPrompt(text, false);
         }
 
         private void SelectChoiceOption(int index)
@@ -231,7 +238,7 @@ namespace MagesDementiaGame
                 EnvironmentChoice.LowerTelevision => "You lower the television so voices in the room are easier to hear.",
                 _ => "You turn the television off, removing the competing voices."
             };
-            ShowPrompt(text, AllComplete(actionsCompleted));
+            ShowPrompt(text, false);
         }
 
         private void ConfigureTelevisionChoices()
@@ -354,7 +361,39 @@ namespace MagesDementiaGame
             advanceAfterPrompt = advanceWhenClosed;
             if (promptText != null) promptText.text = text;
             promptPanel?.SetActive(true);
+            finishActionsButton?.gameObject.SetActive(false);
+            ResizePromptPanel();
             audioController?.PlayDialogueBlip();
+        }
+
+        private void ResizePromptPanel()
+        {
+            if (promptPanel == null || promptText == null) return;
+            var panelRect = promptPanel.transform as RectTransform;
+            var parentRect = panelRect != null ? panelRect.parent as RectTransform : null;
+            if (panelRect == null || parentRect == null || parentRect.rect.height <= 0f) return;
+
+            Canvas.ForceUpdateCanvases();
+            // PromptText occupies roughly 63% of its panel in the authored layout.
+            // Scale the containing panel so the preferred text height fits that region.
+            var requiredHeight = (promptText.preferredHeight + 24f) / 0.63f;
+            var normalizedHeight = Mathf.Clamp(requiredHeight / parentRect.rect.height, 0.20f, 0.78f);
+            panelRect.anchorMin = new Vector2(panelRect.anchorMin.x, 0.04f);
+            panelRect.anchorMax = new Vector2(panelRect.anchorMax.x, 0.04f + normalizedHeight);
+            panelRect.offsetMin = Vector2.zero;
+            panelRect.offsetMax = Vector2.zero;
+            LayoutRebuilder.ForceRebuildLayoutImmediate(panelRect);
+        }
+
+        private void FinishEnvironmentActions()
+        {
+            if (currentState != State.Acting ||
+                !actionsCompleted[(int)ActionHotspot.Television]) return;
+
+            audioController?.PlayUiClick();
+            currentState = State.Conversing;
+            ApplyState();
+            OpenApproachEntry();
         }
 
         private void ClosePrompt()
@@ -376,7 +415,11 @@ namespace MagesDementiaGame
                 }
                 return;
             }
-            if (!advanceAfterPrompt) return;
+            if (!advanceAfterPrompt)
+            {
+                ApplyState();
+                return;
+            }
             advanceAfterPrompt = false;
             if (currentState == State.Entered) currentState = State.Observing;
             else if (currentState == State.Observing) currentState = State.Acting;
@@ -404,6 +447,11 @@ namespace MagesDementiaGame
                                          actionsCompleted[(int)ActionHotspot.Wall] &&
                                          !actionsCompleted[(int)ActionHotspot.Cabinet]);
             wallPhotograph?.SetActive(actionsCompleted[(int)ActionHotspot.Cabinet]);
+            finishActionsButton?.gameObject.SetActive(
+                currentState == State.Acting &&
+                actionsCompleted[(int)ActionHotspot.Television] &&
+                (promptPanel == null || !promptPanel.activeSelf) &&
+                (televisionChoicePanel == null || !televisionChoicePanel.activeSelf));
             if (currentState != State.Acting && currentState != State.Conversing)
                 televisionChoicePanel?.SetActive(false);
             if (currentState != State.Conversing)
@@ -413,9 +461,13 @@ namespace MagesDementiaGame
             {
                 State.Entered => $"Replay the conversation ({enteredReplayIndex + 1}/{enteredReplayLines?.Length ?? 5})",
                 State.Observing => $"Observe Minh and the room ({CompletedCount(observationsCompleted)}/{observationsCompleted.Length})",
-                State.Acting when actionsCompleted[(int)ActionHotspot.Wall] && !actionsCompleted[(int)ActionHotspot.Cabinet] =>
-                    "Find the missing photograph.",
-                State.Acting => $"Prepare the environment ({CompletedCount(actionsCompleted)}/{actionsCompleted.Length})",
+                State.Acting when actionsCompleted[(int)ActionHotspot.Television] && actionsCompleted[(int)ActionHotspot.Cabinet] =>
+                    "Environment prepared. Continue when ready.",
+                State.Acting when actionsCompleted[(int)ActionHotspot.Television] && actionsCompleted[(int)ActionHotspot.Wall] =>
+                    "Find the photograph, or continue without it.",
+                State.Acting when actionsCompleted[(int)ActionHotspot.Television] =>
+                    "Restore the familiar photograph, or continue without it.",
+                State.Acting => "Prepare the environment: decide what to do with the television.",
                 State.Conversing when communicationStage == CommunicationStage.Complete => "Continue to the resolution",
                 State.Conversing when communicationStage == CommunicationStage.SubmittingApproach => "Listen and consider your approach",
                 _ => "Choose how to approach Minh"

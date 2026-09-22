@@ -72,8 +72,7 @@ namespace MagesDementiaGame
         public bool HasAllChoices =>
             SelectedEnvironmentChoice != EnvironmentChoice.NotChosen &&
             SelectedApproachChoice != ApproachChoice.NotChosen &&
-            SelectedResponseChoice != ResponseChoice.NotChosen &&
-            PhotoRestored;
+            SelectedResponseChoice != ResponseChoice.NotChosen;
 
         public event Action StateChanged;
 

@@ -39,6 +39,7 @@ namespace MagesDementiaGame
         private bool initialized;
 
         public ResolutionFlowState FlowState { get; private set; }
+        public bool IsPhotographVisible { get; private set; }
         public bool IsInteractionBlocked => panelOpen || encouragementOpen || FlowState == ResolutionFlowState.Leaving ||
                                             FlowState == ResolutionFlowState.Complete;
 
@@ -205,8 +206,8 @@ namespace MagesDementiaGame
             audioController?.SetTelevisionAudio(state, false);
             // Direct Play Mode entry has no completed LanView session, so use the
             // restored photograph as ResolutionScene's authored default.
-            var photographVisible = session.Phase != NarrativePhase.Replay || session.PhotoRestored;
-            roomView.SetPhotoVisible(photographVisible);
+            IsPhotographVisible = session.Phase != NarrativePhase.Replay || session.PhotoRestored;
+            roomView.SetPhotoVisible(IsPhotographVisible);
         }
 
         private void BeginEscort()
