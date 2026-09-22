@@ -5,7 +5,7 @@ namespace MagesDementiaGame
 {
     public sealed class SceneAudioController : MonoBehaviour
     {
-        private const float AmbienceVolume = 0.25f;
+        private const float AmbienceVolume = 0.75f;
         private const float ReflectionVolume = 0.30f;
         private const float TelevisionOnVolume = 0.18f;
         private const float TelevisionLoweredVolume = 0.06f;

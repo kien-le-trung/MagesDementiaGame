@@ -79,6 +79,15 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const corsHeaders = createCorsHeaders(request, env);
 
+    // WebGL runs inside the browser, so its JSON POST is preceded by a CORS
+    // preflight request. Approve it before applying the API route checks below.
+    if (request.method === "OPTIONS") {
+      return new Response(null, {
+        status: 204,
+        headers: corsHeaders
+      });
+    }
+
     const url = new URL(request.url);
     if (request.method === "GET" && url.pathname === "/health") {
       return json({ ok: true, service: "mages-approach-judge", model: OPENROUTER_FREE_MODEL }, 200, corsHeaders);
